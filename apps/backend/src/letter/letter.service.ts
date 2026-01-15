@@ -62,8 +62,12 @@ export class LetterService {
     @InjectRepository(User) private userRepo: Repository<User>,
     private configService: ConfigService,
   ) {
+    const openaiApiKey = this.configService.get<string>('OPENAI_API_KEY');
+    if (!openaiApiKey) {
+      throw new Error('OPENAI_API_KEY is not set');
+    }
     this.openai = new OpenAI({
-      apiKey: this.configService.get<string>('OPENAI_API_KEY'),
+      apiKey: openaiApiKey,
     }) as unknown as CustomOpenAIClient;
   }
   private normalizeToDataUrl(image: string): string {

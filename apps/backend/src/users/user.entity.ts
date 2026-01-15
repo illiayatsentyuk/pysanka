@@ -1,10 +1,4 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  CreateDateColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class User {
@@ -17,15 +11,9 @@ export class User {
   @Column()
   hash: string;
 
-  @Column({ type: 'text', nullable: true, unique: true })
-  hashedRt!: string;
+  @Column({ type: 'varchar', nullable: true })
+  hashedRt: string | null;
 
-  @CreateDateColumn()
-  createdAt: Date;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
-
-  @Column({ type: 'jsonb', default: () => "'{}'" })
-  results: Record<string, any>;
+  @Column({ type: 'jsonb', nullable: true })
+  results: any;
 }
