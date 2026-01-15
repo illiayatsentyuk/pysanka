@@ -23,7 +23,7 @@ const STATUS = {
 const speakLetter = (letter, language) => {
   if ('speechSynthesis' in window) {
     const utterance = new SpeechSynthesisUtterance(letter);
-    
+
     // Мапінг мов для SpeechSynthesis
     const langMap = {
       'ua': 'uk-UA',
@@ -35,12 +35,12 @@ const speakLetter = (letter, language) => {
       'es': 'es-ES',
       'de': 'de-DE'
     };
-    
+
     utterance.lang = langMap[language] || 'en-US';
     utterance.rate = 0.8;
     utterance.pitch = 1;
     utterance.volume = 1;
-    
+
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(utterance);
   } else {
@@ -70,7 +70,7 @@ export default function Canvas() {
   );
 
   const { t, i18n } = useTranslation();
-  
+
   const searchParams = new URLSearchParams(location.search);
   const sketchOrNot = searchParams.get("sketch") === "true";
   const letter = searchParams.get("letter");
@@ -81,10 +81,10 @@ export default function Canvas() {
       const currentLang = localStorage.getItem('i18nextLng');
       setUserLanguage(currentLang);
     };
-    
+
     handleLanguageChange();
     window.addEventListener('storage', handleLanguageChange);
-    
+
     return () => {
       window.removeEventListener('storage', handleLanguageChange);
     };
@@ -184,18 +184,18 @@ export default function Canvas() {
     try {
       const progressKey = 'userProgress';
       let progress = JSON.parse(localStorage.getItem(progressKey) || '{}');
-      
+
       if (!progress[language]) {
         progress[language] = {};
       }
-      
+
       let status = 'bad';
       if (percents > 30 && percents < 70) {
         status = 'average';
       } else if (percents >= 70) {
         status = 'good';
       }
-      
+
       progress[language][letter] = { status };
       localStorage.setItem(progressKey, JSON.stringify(progress));
     } catch (e) {
@@ -208,18 +208,18 @@ export default function Canvas() {
     setStyles((prevStyles) => {
       return { ...prevStyles, pointerEvents: "none" };
     });
-    
+
     canvasRef.current
       .exportImage("png")
       .then(async (data) => {
         const userPicture = data;
         const ethalonImage = await convertSvgToPng(letterImage);
-        
+
         if (!ethalonImage) {
           console.error("Failed to convert SVG to PNG");
           return;
         }
-        
+
         // Build headers - only include Authorization if token exists
         const headers = {
           "Content-Type": "application/json",
@@ -227,7 +227,7 @@ export default function Canvas() {
         if (token) {
           headers.Authorization = "Bearer " + token;
         }
-        
+
         const resp = await fetch(
           "https://letters-back.vercel.app/sendImages",
           {
@@ -254,12 +254,12 @@ export default function Canvas() {
           setAdvice(response.result.advice);
           resultModalRef.current.open();
           setIsLoading(false);
-          
-          // Save progress to localStorage if user is not logged in
-          if (!token && response.percents !== undefined) {
+
+          // Always save progress to localStorage as requested
+          if (response.percents !== undefined) {
             saveProgressToLocalStorage(language, letter, response.percents);
           }
-          
+
           return newValue;
         });
       })
@@ -281,9 +281,9 @@ export default function Canvas() {
       <div className="canvas-navigation">
         <div className="nav-arrow-left">
           <span className="nav-letter">{prevLetter}</span>
-          <button 
+          <button
             className="nav-arrow-button"
-            disabled={isLoading || !prevLetter} 
+            disabled={isLoading || !prevLetter}
             onClick={() => handleArrowClick("prev")}
           >
             <img
@@ -295,9 +295,9 @@ export default function Canvas() {
         </div>
         <div className="canvas-main-letter">{letter}</div>
         <div className="nav-arrow-right">
-          <button 
+          <button
             className="nav-arrow-button"
-            disabled={isLoading || !nextLetter} 
+            disabled={isLoading || !nextLetter}
             onClick={() => handleArrowClick("next")}
           >
             <img

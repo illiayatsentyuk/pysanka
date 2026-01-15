@@ -16,7 +16,7 @@ export default function App() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    
+
     // Якщо токена немає взагалі - одразу встановлюємо false
     if (!token) {
       setIsLoggedIn(false);
@@ -25,7 +25,7 @@ export default function App() {
     }
 
     // Перевіряємо токен на сервері
-    fetch("https://letters-back.vercel.app/me", {
+    fetch(`${import.meta.env.VITE_API_URL}/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
