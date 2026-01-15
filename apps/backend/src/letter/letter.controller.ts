@@ -1,5 +1,5 @@
 import { Controller, Get, Body, Post, Param, Put } from '@nestjs/common';
-import { LetterService } from './letter.service';
+import { LetterService, OpenAIResponse } from './letter.service';
 import { GetImageDto } from './dto/get-image.dto';
 import { GetLettersDto } from './dto/get-letters.dto';
 import { SendImagesDto } from './dto/send-images.dto';
@@ -19,12 +19,21 @@ export class LetterController {
 
   @Public()
   @Post('/letters')
-  getLetters(@Body() body: GetLettersDto) {
+  getLetters(@Body() body: GetLettersDto): {
+    letters: Array<{ id: number; letter: string; language: string }>;
+  } {
     return this.letterService.getLetters(body);
   }
 
   @Post('/sendImages')
-  sendImages(@Body() body: SendImagesDto, @GetCurrentUserId() userId: number) {
+  sendImages(
+    @Body() body: SendImagesDto,
+    @GetCurrentUserId() userId: number,
+  ): Promise<{
+    percents: number;
+    result: OpenAIResponse;
+    updatedResults: any;
+  }> {
     return this.letterService.sendTwoImages(body, userId);
   }
 

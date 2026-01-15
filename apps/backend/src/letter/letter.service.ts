@@ -31,7 +31,7 @@ interface UserResults {
   [language: string]: LanguageResults;
 }
 
-interface OpenAIResponse {
+export interface OpenAIResponse {
   percents: number;
   advice?: string;
   letter?: string;
@@ -229,6 +229,7 @@ export class LetterService {
           ],
         },
       );
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const resul: OpenAIResponse = JSON.parse(response.output_text);
       const percents: number = resul.percents;
 
@@ -246,10 +247,13 @@ export class LetterService {
       }
 
       if (percents <= 30) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         user.results[language][letter] = { status: 'bad' };
       } else if (percents > 30 && percents < 70) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         user.results[language][letter] = { status: 'average' };
       } else {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         user.results[language][letter] = { status: 'good' };
       }
       const savedUser: User = await this.userRepo.save(user);
@@ -274,6 +278,7 @@ export class LetterService {
       if (!user) {
         throw new BadRequestException('User not found');
       }
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       return { user: user };
     } catch (e) {
       console.log(e);
@@ -315,6 +320,7 @@ export class LetterService {
         user.results[language] = {} as LanguageResults;
       }
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       user.results[language][letter] = { status: status };
       const savedUser: User = await this.userRepo.save(user);
       return {

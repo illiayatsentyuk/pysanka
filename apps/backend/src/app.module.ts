@@ -15,9 +15,9 @@ import { LetterModule } from './letter/letter.module';
     TypeOrmModule.forRoot({
       database: 'postgres',
       type: 'postgres',
-      host: 'aws-1-eu-north-1.pooler.supabase.com',
+      host: 'aws-1-eu-west-1.pooler.supabase.com',
       port: 6543,
-      username: 'postgres.rorijfampwgnvuoglolx',
+      username: 'postgres.yozxrynozrcjstdozhco',
       password: 'I562530y2009',
       /**
        * The "poolMode" option is not valid in TypeORM configuration for postgres.
