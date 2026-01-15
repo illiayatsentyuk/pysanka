@@ -12,6 +12,7 @@ import { OpenAI } from 'openai';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UpdateProgressDto } from './dto/update-progress.dto';
+import { ConfigService } from '@nestjs/config';
 
 interface Letter {
   id: number;
@@ -57,10 +58,12 @@ interface CustomOpenAIClient {
 @Injectable()
 export class LetterService {
   private openai: CustomOpenAIClient;
-  constructor(@InjectRepository(User) private userRepo: Repository<User>) {
+  constructor(
+    @InjectRepository(User) private userRepo: Repository<User>,
+    private configService: ConfigService,
+  ) {
     this.openai = new OpenAI({
-      apiKey:
-        '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',
+      apiKey: this.configService.get<string>('OPENAI_API_KEY'),
     }) as unknown as CustomOpenAIClient;
   }
   private normalizeToDataUrl(image: string): string {
@@ -157,7 +160,7 @@ export class LetterService {
     }
   }
 
-  async sendTwoImages(body: SendImagesDto, userId: number) {
+  async sendTwoImages(body: SendImagesDto, userId?: number) {
     const { userImage, ethalonImage, letter, language, systemLanguage } = body;
     const normalizedUserImage = this.normalizeToDataUrl(userImage);
     const normalizedEthalonImage = this.normalizeToDataUrl(ethalonImage);
@@ -233,35 +236,44 @@ export class LetterService {
       const resul: OpenAIResponse = JSON.parse(response.output_text);
       const percents: number = resul.percents;
 
-      const user: User | null = await this.userRepo.findOne({
-        where: { id: userId },
-      });
-      if (!user) {
-        throw new BadRequestException('User not found');
-      }
-      if (!user.results) {
-        user.results = {} as UserResults;
-      }
-      if (!user.results[language]) {
-        user.results[language] = {} as LanguageResults;
+      // Only save to database if user is logged in
+      if (userId) {
+        const user: User | null = await this.userRepo.findOne({
+          where: { id: userId },
+        });
+        if (!user) {
+          throw new BadRequestException('User not found');
+        }
+        if (!user.results) {
+          user.results = {} as UserResults;
+        }
+        if (!user.results[language]) {
+          user.results[language] = {} as LanguageResults;
+        }
+
+        if (percents <= 30) {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          user.results[language][letter] = { status: 'bad' };
+        } else if (percents > 30 && percents < 70) {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          user.results[language][letter] = { status: 'average' };
+        } else {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          user.results[language][letter] = { status: 'good' };
+        }
+        const savedUser: User = await this.userRepo.save(user);
+
+        return {
+          percents: percents,
+          result: resul,
+          updatedResults: savedUser.results,
+        };
       }
 
-      if (percents <= 30) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        user.results[language][letter] = { status: 'bad' };
-      } else if (percents > 30 && percents < 70) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        user.results[language][letter] = { status: 'average' };
-      } else {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        user.results[language][letter] = { status: 'good' };
-      }
-      const savedUser: User = await this.userRepo.save(user);
-
+      // For non-logged-in users, return result without saving to database
       return {
         percents: percents,
         result: resul,
-        updatedResults: savedUser.results,
       };
     } catch (e) {
       console.log(e);

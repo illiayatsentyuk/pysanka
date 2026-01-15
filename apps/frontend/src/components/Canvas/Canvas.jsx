@@ -179,6 +179,30 @@ export default function Canvas() {
     }
   };
 
+  // Helper function to save progress to localStorage
+  const saveProgressToLocalStorage = (language, letter, percents) => {
+    try {
+      const progressKey = 'userProgress';
+      let progress = JSON.parse(localStorage.getItem(progressKey) || '{}');
+      
+      if (!progress[language]) {
+        progress[language] = {};
+      }
+      
+      let status = 'bad';
+      if (percents > 30 && percents < 70) {
+        status = 'average';
+      } else if (percents >= 70) {
+        status = 'good';
+      }
+      
+      progress[language][letter] = { status };
+      localStorage.setItem(progressKey, JSON.stringify(progress));
+    } catch (e) {
+      console.error('Failed to save progress to localStorage:', e);
+    }
+  };
+
   function onSendCanvas() {
     setIsLoading(true);
     setStyles((prevStyles) => {
@@ -196,13 +220,18 @@ export default function Canvas() {
           return;
         }
         
+        // Build headers - only include Authorization if token exists
+        const headers = {
+          "Content-Type": "application/json",
+        };
+        if (token) {
+          headers.Authorization = "Bearer " + token;
+        }
+        
         const resp = await fetch(
           "https://letters-back.vercel.app/sendImages",
           {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: "Bearer " + token,
-            },
+            headers: headers,
             method: "POST",
             body: JSON.stringify({
               userImage: userPicture,
@@ -225,6 +254,12 @@ export default function Canvas() {
           setAdvice(response.result.advice);
           resultModalRef.current.open();
           setIsLoading(false);
+          
+          // Save progress to localStorage if user is not logged in
+          if (!token && response.percents !== undefined) {
+            saveProgressToLocalStorage(language, letter, response.percents);
+          }
+          
           return newValue;
         });
       })

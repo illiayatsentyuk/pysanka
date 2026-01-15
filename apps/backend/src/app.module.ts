@@ -7,27 +7,30 @@ import { AuthModule } from './auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
 import { AtGuard } from './common/guards';
 import { LetterModule } from './letter/letter.module';
-
-//postgresql://postgres:[YOUR_PASSWORD]@db.rorijfampwgnvuoglolx.supabase.co:5432/postgres
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      database: 'postgres',
-      type: 'postgres',
-      host: 'aws-1-eu-west-1.pooler.supabase.com',
-      port: 6543,
-      username: 'postgres.yozxrynozrcjstdozhco',
-      password: 'I562530y2009',
-      /**
-       * The "poolMode" option is not valid in TypeORM configuration for postgres.
-       * Removed invalid "poolMode" property.
-       */
-      entities: [User],
-      synchronize: true,
-      extra: {
-        pool_mode: 'transaction',
-      },
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: '.env',
+    }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => ({
+        type: 'postgres',
+        host: configService.get<string>('DB_HOST'),
+        port: configService.get<number>('DB_PORT'),
+        username: configService.get<string>('DB_USERNAME'),
+        password: configService.get<string>('DB_PASSWORD'),
+        database: configService.get<string>('DB_DATABASE'),
+        entities: [User],
+        synchronize: true,
+        extra: {
+          pool_mode: 'transaction',
+        },
+      }),
+      inject: [ConfigService],
     }),
     AuthModule,
     LetterModule,

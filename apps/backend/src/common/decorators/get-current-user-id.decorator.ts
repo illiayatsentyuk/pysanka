@@ -6,3 +6,10 @@ export const GetCurrentUserId = createParamDecorator(
     return request.user['sub'];
   },
 );
+
+export const GetCurrentUserIdOptional = createParamDecorator(
+  (data: undefined, context: ExecutionContext): number | undefined => {
+    const request = context.switchToHttp().getRequest();
+    return request.user?.['sub'];
+  },
+);

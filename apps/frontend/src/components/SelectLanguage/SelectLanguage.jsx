@@ -11,6 +11,18 @@ const STATUS = {
 };
 
 async function getResults(token) {
+  // If no token, return progress from localStorage
+  if (!token) {
+    try {
+      const progress = JSON.parse(localStorage.getItem('userProgress') || '{}');
+      return { progress };
+    } catch (e) {
+      console.error('Failed to load progress from localStorage:', e);
+      return { progress: {} };
+    }
+  }
+  
+  // If token exists, fetch from API
   const response = await fetch(
     "https://letters-back.vercel.app/getUserProgress",
     {
@@ -80,6 +92,19 @@ export default function SelectLanguage() {
       setResults(data);
     };
     fetchResults();
+    
+    // Also listen for storage changes to update progress in real-time
+    const handleStorageChange = async () => {
+      if (!token) {
+        const data = await getResults(token);
+        setResults(data);
+      }
+    };
+    window.addEventListener('storage', handleStorageChange);
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
   }, [token]);
 
   const handleStart = () => {

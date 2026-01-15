@@ -3,7 +3,7 @@ import { LetterService, OpenAIResponse } from './letter.service';
 import { GetImageDto } from './dto/get-image.dto';
 import { GetLettersDto } from './dto/get-letters.dto';
 import { SendImagesDto } from './dto/send-images.dto';
-import { GetCurrentUserId } from 'src/common/decorators/get-current-user-id.decorator';
+import { GetCurrentUserId, GetCurrentUserIdOptional } from 'src/common/decorators/get-current-user-id.decorator';
 import { UpdateProgressDto } from './dto/update-progress.dto';
 import { Public } from 'src/common/decorators/public.decorator';
 
@@ -25,14 +25,15 @@ export class LetterController {
     return this.letterService.getLetters(body);
   }
 
+  @Public()
   @Post('/sendImages')
   sendImages(
     @Body() body: SendImagesDto,
-    @GetCurrentUserId() userId: number,
+    @GetCurrentUserIdOptional() userId?: number,
   ): Promise<{
     percents: number;
     result: OpenAIResponse;
-    updatedResults: any;
+    updatedResults?: any;
   }> {
     return this.letterService.sendTwoImages(body, userId);
   }
