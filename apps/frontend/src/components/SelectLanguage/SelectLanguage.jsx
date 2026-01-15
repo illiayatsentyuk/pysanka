@@ -10,39 +10,20 @@ const STATUS = {
   NOT_DONE: null,
 };
 
-async function getResults(token) {
-  // If no token, return progress from localStorage
-  if (!token) {
-    try {
-      const progress = JSON.parse(localStorage.getItem('userProgress') || '{}');
-      return { progress };
-    } catch (e) {
-      console.error('Failed to load progress from localStorage:', e);
-      return { progress: {} };
-    }
+async function getResults() {
+  // Always get progress from localStorage
+  try {
+    const progress = JSON.parse(localStorage.getItem('userProgress') || '{}');
+    return { progress };
+  } catch (e) {
+    console.error('Failed to load progress from localStorage:', e);
+    return { progress: {} };
   }
-  
-  // If token exists, fetch from API
-  const response = await fetch(
-    "https://letters-back.vercel.app/getUserProgress",
-    {
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    },
-  );
-  const data = await response.json();
-  if (data.message === "Not authenticated.") {
-    alert("Not authenticated");
-  } else if (data.message === "Token expired.") {
-    alert("Token expired");
-  }
-  return data;
 }
 async function getLetters(language) {
   try {
     const response = await fetch(
-      "https://letters-back.vercel.app/letters",
+      "http://localhost:3000/letters",
       {
         headers: {
           "Content-Type": "application/json",
@@ -70,7 +51,6 @@ export default function SelectLanguage() {
   const navigate = useNavigate();
   const location = useLocation();
   const { t, i18n } = useTranslation();
-  const [token, setToken] = useState(localStorage.getItem("token"));
   const searchParams = new URLSearchParams(location.search);
   let sketchOrNot = searchParams.get("sketch");
   if (!sketchOrNot) {
@@ -88,24 +68,22 @@ export default function SelectLanguage() {
 
   useEffect(() => {
     const fetchResults = async () => {
-      const data = await getResults(token);
+      const data = await getResults();
       setResults(data);
     };
     fetchResults();
     
     // Also listen for storage changes to update progress in real-time
     const handleStorageChange = async () => {
-      if (!token) {
-        const data = await getResults(token);
-        setResults(data);
-      }
+      const data = await getResults();
+      setResults(data);
     };
     window.addEventListener('storage', handleStorageChange);
     
     return () => {
       window.removeEventListener('storage', handleStorageChange);
     };
-  }, [token]);
+  }, []);
 
   const handleStart = () => {
     if (sketchOrNot === "quick") {

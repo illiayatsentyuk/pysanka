@@ -27,7 +27,6 @@ export default function FileUploader() {
     localStorage.getItem('i18nextLng') || 'en'
   );
   const { t, i18n } = useTranslation();
-  const token = localStorage.getItem("token");
   const searchParams = new URLSearchParams(location.search);
   const letter = searchParams.get("letter");
   const language = searchParams.get("language");
@@ -55,7 +54,7 @@ export default function FileUploader() {
     if (letter === null || language === null || !letter || !language) {
       return navigate(`/select-language?sketch=free`);
     }
-    fetch("https://letters-back.vercel.app/letter", {
+    fetch("http://localhost:3000/letter", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -130,12 +129,11 @@ export default function FileUploader() {
       const userBase64 = await toBase64(userFile);
 
       const response = await fetch(
-        "https://letters-back.vercel.app/sendImages",
+        "http://localhost:3000/sendImages",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
           },
           body: JSON.stringify({
             ethalonImage: letterImage,

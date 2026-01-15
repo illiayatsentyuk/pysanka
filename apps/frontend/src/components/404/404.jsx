@@ -14,7 +14,7 @@ export default function NotFound() {
       <h1 className="not-found-code">404</h1>
       <h3 className="not-found-title">
         <Trans i18nKey="404Page.title">
-          This page is outside of the universe or just LogIn.
+          This page is outside of the universe.
         </Trans>
       </h3>
       <p className="not-found-description">

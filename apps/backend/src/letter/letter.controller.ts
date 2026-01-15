@@ -3,21 +3,17 @@ import { LetterService, OpenAIResponse } from './letter.service';
 import { GetImageDto } from './dto/get-image.dto';
 import { GetLettersDto } from './dto/get-letters.dto';
 import { SendImagesDto } from './dto/send-images.dto';
-import { GetCurrentUserId, GetCurrentUserIdOptional } from 'src/common/decorators/get-current-user-id.decorator';
 import { UpdateProgressDto } from './dto/update-progress.dto';
-import { Public } from 'src/common/decorators/public.decorator';
 
-@Public()
 @Controller('')
 export class LetterController {
   constructor(private readonly letterService: LetterService) {}
-  @Public()
+  
   @Post('/letter')
   getImageLetter(@Body() body: GetImageDto) {
     return this.letterService.getImageLetter(body);
   }
 
-  @Public()
   @Post('/letters')
   getLetters(@Body() body: GetLettersDto): {
     letters: Array<{ id: number; letter: string; language: string }>;
@@ -25,22 +21,20 @@ export class LetterController {
     return this.letterService.getLetters(body);
   }
 
-  @Public()
   @Post('/sendImages')
   sendImages(
     @Body() body: SendImagesDto,
-    @GetCurrentUserIdOptional() userId?: number,
   ): Promise<{
     percents: number;
     result: OpenAIResponse;
-    updatedResults?: any;
   }> {
-    return this.letterService.sendTwoImages(body, userId);
+    return this.letterService.sendTwoImages(body);
   }
 
   @Get('/getUserProgress/')
-  getUserProgress(@GetCurrentUserId() userId: number) {
-    return this.letterService.getUserProgress(userId);
+  getUserProgress() {
+    // Return empty progress since we're not using database for progress anymore
+    return { progress: {} };
   }
 
   @Get('/getUser/:id')

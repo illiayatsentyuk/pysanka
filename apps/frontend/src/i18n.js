@@ -31,7 +31,7 @@ export default i18n;
 //       headers["Authorization"] = `Bearer ${token}`;
 //     }
 //     // Fire-and-forget; no blocking/await required for UI responsiveness
-//     fetch("https://letters-back.vercel.app/setLanguage", {
+//     fetch("http://localhost:3000/setLanguage", {
 //       method: "POST",
 //       headers,
 //       body: JSON.stringify({ language: lng }),

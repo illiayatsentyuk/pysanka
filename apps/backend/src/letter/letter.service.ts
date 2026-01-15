@@ -160,7 +160,7 @@ export class LetterService {
     }
   }
 
-  async sendTwoImages(body: SendImagesDto, userId?: number) {
+  async sendTwoImages(body: SendImagesDto) {
     const { userImage, ethalonImage, letter, language, systemLanguage } = body;
     const normalizedUserImage = this.normalizeToDataUrl(userImage);
     const normalizedEthalonImage = this.normalizeToDataUrl(ethalonImage);
@@ -236,41 +236,8 @@ export class LetterService {
       const resul: OpenAIResponse = JSON.parse(response.output_text);
       const percents: number = resul.percents;
 
-      // Only save to database if user is logged in
-      if (userId) {
-        const user: User | null = await this.userRepo.findOne({
-          where: { id: userId },
-        });
-        if (!user) {
-          throw new BadRequestException('User not found');
-        }
-        if (!user.results) {
-          user.results = {} as UserResults;
-        }
-        if (!user.results[language]) {
-          user.results[language] = {} as LanguageResults;
-        }
-
-        if (percents <= 30) {
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          user.results[language][letter] = { status: 'bad' };
-        } else if (percents > 30 && percents < 70) {
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          user.results[language][letter] = { status: 'average' };
-        } else {
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          user.results[language][letter] = { status: 'good' };
-        }
-        const savedUser: User = await this.userRepo.save(user);
-
-        return {
-          percents: percents,
-          result: resul,
-          updatedResults: savedUser.results,
-        };
-      }
-
-      // For non-logged-in users, return result without saving to database
+      // Progress is now stored in localStorage on the frontend
+      // No need to save to database
       return {
         percents: percents,
         result: resul,

@@ -1,22 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
-import { useState, useEffect } from "react";
 import { LuPenTool, LuFileText, LuFileCheck, LuTimer, LuUpload } from "react-icons/lu";
 import "./MainPage.css";
 
 export default function Main() {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
-  const [loggedIn, setLoggedIn] = useState(false);
-  const token = localStorage.getItem("token");
-
-  useEffect(() => {
-    if (!token) {
-      setLoggedIn(false);
-    } else {
-      setLoggedIn(true);
-    }
-  }, []);
 
   return (
     <section className="main-page">
@@ -45,12 +34,7 @@ export default function Main() {
           </p>
           <button
             className="mode-card-button"
-            onClick={() => {
-              if (!loggedIn) {
-                return navigate("/auth");
-              }
-              return navigate("/select-language?sketch=true");
-            }}
+            onClick={() => navigate("/select-language?sketch=true")}
           >
             <Trans i18nKey="MainPage.startButton">Почати навчання →</Trans>
           </button>
@@ -70,12 +54,7 @@ export default function Main() {
           </p>
           <button
             className="mode-card-button"
-            onClick={() => {
-              if (!loggedIn) {
-                return navigate("/auth");
-              }
-              return navigate("/select-language?sketch=free");
-            }}
+            onClick={() => navigate("/select-language?sketch=free")}
           >
             <Trans i18nKey="MainPage.startButton">Почати навчання →</Trans>
           </button>
@@ -95,12 +74,7 @@ export default function Main() {
           </p>
           <button
             className="mode-card-button"
-            onClick={() => {
-              if (!loggedIn) {
-                return navigate("/auth");
-              }
-              return navigate("/select-language?sketch=false");
-            }}
+            onClick={() => navigate("/select-language?sketch=false")}
           >
             <Trans i18nKey="MainPage.startButton">Почати навчання →</Trans>
           </button>
@@ -120,12 +94,7 @@ export default function Main() {
           </p>
           <button
             className="mode-card-button"
-            onClick={() => {
-              if (!loggedIn) {
-                return navigate("/auth");
-              }
-              return navigate("/select-language?sketch=quick");
-            }}
+            onClick={() => navigate("/select-language?sketch=quick")}
           >
             <Trans i18nKey="MainPage.startButton">Почати навчання →</Trans>
           </button>
@@ -145,12 +114,7 @@ export default function Main() {
           </p>
           <button
             className="mode-card-button"
-            onClick={() => {
-              if (!loggedIn) {
-                return navigate("/auth");
-              }
-              return navigate("/select-language?sketch=upload");
-            }}
+            onClick={() => navigate("/select-language?sketch=upload")}
           >
             <Trans i18nKey="MainPage.startButton">Почати навчання →</Trans>
           </button>

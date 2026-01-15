@@ -4,8 +4,6 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/user.entity';
 import { AuthModule } from './auth/auth.module';
-import { APP_GUARD } from '@nestjs/core';
-import { AtGuard } from './common/guards';
 import { LetterModule } from './letter/letter.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
@@ -36,12 +34,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     LetterModule,
   ],
   controllers: [AppController],
-  providers: [
-    AppService,
-    {
-      provide: APP_GUARD,
-      useClass: AtGuard,
-    },
-  ],
+  providers: [AppService],
 })
 export class AppModule {}

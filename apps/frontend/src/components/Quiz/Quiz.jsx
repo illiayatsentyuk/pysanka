@@ -13,7 +13,7 @@ const TIME_PER_LETTER = 20; // секунд на кожну літеру
 async function getLetters(language) {
   try {
     const response = await fetch(
-      "https://letters-back.vercel.app/letters",
+      "http://localhost:3000/letters",
       {
         headers: {
           "Content-Type": "application/json",
@@ -35,7 +35,7 @@ async function getLetters(language) {
 
 async function getLetterImage(language, letter) {
   try {
-    const response = await fetch("https://letters-back.vercel.app/letter", {
+    const response = await fetch("http://localhost:3000/letter", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -61,14 +61,13 @@ async function getLetterImage(language, letter) {
   }
 }
 
-async function sendLetterForEvaluation(token, language, letter, userImage, ethalonImage, systemLanguage) {
+async function sendLetterForEvaluation(language, letter, userImage, ethalonImage, systemLanguage) {
   try {
     const response = await fetch(
-      "https://letters-back.vercel.app/letter/quiz",
+      "http://localhost:3000/letter/quiz",
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer " + token,
         },
         method: "POST",
         body: JSON.stringify({
@@ -228,7 +227,6 @@ export default function Quiz() {
       await new Promise(resolve => setTimeout(resolve, 800));
 
       sendLetterForEvaluation(
-        token,
         language,
         currentLetter,
         userPicture,
