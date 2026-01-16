@@ -16,7 +16,6 @@ export default function App() {
           <Route path="canvas" element={<Canvas />} />
           <Route path="file-uploader" element={<FileUploader />} />
           <Route path="select-language" element={<SelectLanguage />} />
-          <Route path="quiz" element={<Quiz />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
