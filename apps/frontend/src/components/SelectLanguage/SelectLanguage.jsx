@@ -123,22 +123,22 @@ export default function SelectLanguage() {
         {sketchOrNot === "free" ? (
           <>
             <h1><Trans i18nKey="NavBar.list.ComparePage">Free Mode</Trans></h1>
-            <p className="mode-hint"><Trans i18nKey="NavBar.list.CompareHint">(напишіть літеру на папері та надішліть фото напису на перевірку)</Trans></p>
+            <p className="mode-hint"><Trans i18nKey="SelectLanguagePage.chooseLetter">Виберіть букву</Trans></p>
           </>
         ) : sketchOrNot === "true" ? (
           <>
             <h1><Trans i18nKey="NavBar.list.StudyPage">Studying</Trans></h1>
-            <p className="mode-hint"><Trans i18nKey="NavBar.list.StudyHint">(напишіть літеру по наданому шаблону)</Trans></p>
+            <p className="mode-hint"><Trans i18nKey="SelectLanguagePage.chooseLetter">Виберіть букву</Trans></p>
           </>
         ) : sketchOrNot === "upload" ? (
           <>
             <h1><Trans i18nKey="MainPage.uploadSection.title">Upload File</Trans></h1>
-            <p className="mode-hint"><Trans i18nKey="NavBar.list.CompareHint">(напишіть літеру на папері та надішліть фото напису на перевірку)</Trans></p>
+            <p className="mode-hint"><Trans i18nKey="SelectLanguagePage.chooseLetter">Виберіть букву</Trans></p>
           </>
         ) : (
           <>
             <h1><Trans i18nKey="NavBar.list.ReviewPage">Testing</Trans></h1>
-            <p className="mode-hint"><Trans i18nKey="NavBar.list.ReviewHint">(напишіть літеру без шаблону)</Trans></p>
+            <p className="mode-hint"><Trans i18nKey="SelectLanguagePage.chooseLetter">Виберіть букву</Trans></p>
           </>
         )}
       </div>

@@ -218,7 +218,7 @@ export default function Canvas() {
           console.error("Failed to convert SVG to PNG");
           return;
         }
-        
+
         const resp = await fetch(
           `${import.meta.env.VITE_API_URL}sendImages`,
           {
@@ -242,7 +242,7 @@ export default function Canvas() {
           setAdvice(response.result.advice);
           resultModalRef.current.open();
           setIsLoading(false);
-          
+
           // Save progress to localStorage
           if (response.percents !== undefined) {
             saveProgressToLocalStorage(language, letter, response.percents);
@@ -297,6 +297,13 @@ export default function Canvas() {
           <span className="nav-letter">{nextLetter}</span>
         </div>
       </div>
+      <p className="mode-hint" style={{ textAlign: 'center', marginTop: '10px' }}>
+        {sketchOrNot ? (
+          <Trans i18nKey="NavBar.list.StudyHint">(напишіть літеру по наданому шаблону)</Trans>
+        ) : (
+          <Trans i18nKey="NavBar.list.ReviewHint">(напишіть літеру без шаблону)</Trans>
+        )}
+      </p>
       {/* <div className="canvas-word-to-speach-container">
         <button
           className="canvas-word-to-speach-button"
