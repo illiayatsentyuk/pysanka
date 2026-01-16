@@ -3,8 +3,11 @@
     "list": {
       "MainPage": "ホーム",
       "StudyPage": "学習",
+      "StudyHint": "(提供されたテンプレートを使って文字を書く)",
       "ReviewPage": "テスト",
+      "ReviewHint": "(テンプレートなしで文字を書く)",
       "ComparePage": "フリーモード",
+      "CompareHint": "(紙に文字を書き、確認のために写真を送る)",
       "QuickMode": "クイックモード",
       "signin": "ログイン",
       "logout": "ログアウト"

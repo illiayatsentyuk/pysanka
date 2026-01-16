@@ -3,8 +3,11 @@
     "list": {
       "MainPage": "Home",
       "StudyPage": "Study",
+      "StudyHint": "(write the letter using the provided template)",
       "ReviewPage": "Testing",
+      "ReviewHint": "(write the letter without a template)",
       "ComparePage": "Free Mode",
+      "CompareHint": "(write the letter on paper and send a photo for verification)",
       "QuickMode": "Quick Mode",
       "signin": "Sign In",
       "logout": "Logout"
@@ -91,10 +94,12 @@
     "clear": "Clear",
     "resultsTitle": "Your Results",
     "average": "Average Score",
+    "language": "Language",
     "loadingResults": "Loading results...",
     "loadingResult": "Loading...",
     "startAgain": "Start Again",
-    "goHome": "Go Home"
+    "goHome": "Go Home",
+    "downloadPdf": "Download results (PDF)"
   },
   "welcomeModal": {
     "title": "Welcome to Lettera!",
@@ -123,19 +128,5 @@
     "title": "This page is outside of the universe.",
     "description": "The page you are trying to access doesn't exist or has been moved. Try going back to our homepage.",
     "homeButton": "Go to home"
-  },
-  "quizPage": {
-    "resultsTitle": "Your Results",
-    "average": "Average Score",
-    "language": "Language",
-    "loadingResults": "Loading results...",
-    "loadingResult": "Loading...",
-    "startAgain": "Start Again",
-    "goHome": "Go Home",
-    "downloadPdf": "Download results (PDF)",
-    "progress": "Letter {{currentLetterIndex}} of {{TOTAL_LETTERS}}",
-    "submitting": "Submitting...",
-    "submit": "Submit",
-    "clear": "Clear"
   }
 }

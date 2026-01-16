@@ -178,7 +178,7 @@ export default function UserLayout() {
             </div>
           </div>
           <a
-            href="https://docs.google.com/document/d/1_QGVVQ16fQrDOvBIVqXN71beT0sl58If1voR6JoOXFM/edit?tab=t.0#heading=h.kmm5qfzc3f17"
+            href="https://docs.google.com/document/d/1rCVxcG4-D7zVxg4Mc-E9Cs4ZfaS8KuyTwaBcuxzsc60/edit?usp=sharing"
             target="_blank"
           >
             <img

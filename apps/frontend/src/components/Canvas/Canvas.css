@@ -5,7 +5,6 @@
   justify-content: center;
   position: relative;
   padding: 40px 20px;
-  gap: 30px;
   min-height: calc(100vh - 80px);
   background-color: white;
 }
@@ -52,10 +51,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 80px;
+  gap: 20px;
   width: 100%;
   max-width: 800px;
-  margin-bottom: 20px;
 }
 
 .canvas-main-letter {

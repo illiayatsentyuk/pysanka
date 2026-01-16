@@ -3,8 +3,11 @@
     "list": {
       "MainPage": "Acasă",
       "StudyPage": "Învățare",
+      "StudyHint": "(învățați să scrieți o literă folosind șablonul furnizat)",
       "ReviewPage": "Testare",
+      "ReviewHint": "(scrieți litera fără șablon)",
       "ComparePage": "Mod liber",
+      "CompareHint": "(scrieți litera pe hârtie și trimiteți o fotografie pentru verificare)",
       "QuickMode": "Mod rapid",
       "signin": "Conectare",
       "logout": "Deconectare"

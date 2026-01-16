@@ -3,8 +3,11 @@
     "list": {
       "MainPage": "Inicio",
       "StudyPage": "Estudio",
+      "StudyHint": "(escribe la letra usando la plantilla proporcionada)",
       "ReviewPage": "Prueba",
+      "ReviewHint": "(escribe la letra sin plantilla)",
       "ComparePage": "Modo libre",
+      "CompareHint": "(escribe la letra en papel y envía una foto para su verificación)",
       "QuickMode": "Modo rápido",
       "signin": "Iniciar sesión",
       "logout": "Cerrar sesión"

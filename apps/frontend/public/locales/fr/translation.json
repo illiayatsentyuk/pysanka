@@ -3,8 +3,11 @@
     "list": {
       "MainPage": "Accueil",
       "StudyPage": "Étude",
+      "StudyHint": "(écrivez la lettre à l'aide du modèle fourni)",
       "ReviewPage": "Test",
+      "ReviewHint": "(écrivez la lettre sans modèle)",
       "ComparePage": "Mode libre",
+      "CompareHint": "(écrivez la lettre sur papier et envoyez une photo pour vérification)",
       "QuickMode": "Mode rapide",
       "signin": "Se connecter",
       "logout": "Se déconnecter"

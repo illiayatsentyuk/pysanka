@@ -3,8 +3,11 @@
     "list": {
       "MainPage": "Startseite",
       "StudyPage": "Lernen",
+      "StudyHint": "(schreiben Sie den Buchstaben mit der bereitgestellten Vorlage)",
       "ReviewPage": "Testen",
+      "ReviewHint": "(schreiben Sie den Buchstaben ohne Vorlage)",
       "ComparePage": "Freier Modus",
+      "CompareHint": "(schreiben Sie den Buchstaben auf Papier und senden Sie ein Foto zur Überprüfung)",
       "QuickMode": "Schnellmodus",
       "signin": "Anmelden",
       "logout": "Abmelden"

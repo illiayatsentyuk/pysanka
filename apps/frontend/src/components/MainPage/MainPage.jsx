@@ -78,27 +78,10 @@ export default function Main() {
           >
             <Trans i18nKey="MainPage.startButton">Почати навчання →</Trans>
           </button>
+          
         </div>
 
-        <div className="mode-card">
-          <div className="mode-icon">
-            <LuUpload />
-          </div>
-          <h3 className="mode-card-title">
-            <Trans i18nKey="MainPage.uploadSection.title">Завантажити файл</Trans>
-          </h3>
-          <p className="mode-card-description">
-            <Trans i18nKey="MainPage.uploadSection.description">
-              Завантажте фото своєї букви та порівняйте зі зразком
-            </Trans>
-          </p>
-          <button
-            className="mode-card-button"
-            onClick={() => navigate("/select-language?sketch=upload")}
-          >
-            <Trans i18nKey="MainPage.startButton">Почати навчання →</Trans>
-          </button>
-        </div>
+
       </div>
     </section>
   );

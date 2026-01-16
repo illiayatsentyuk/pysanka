@@ -23,7 +23,7 @@ async function getResults() {
 async function getLetters(language) {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_API_URL}/letters`,
+      `${import.meta.env.VITE_API_URL}letters`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -57,14 +57,14 @@ export default function SelectLanguage() {
     sketchOrNot = "free";
   }
 
-    useEffect(() => {
-      const fetchData = async () => {
-        const letters = await getLetters(selectedLanguage);
-        setCurrentLetters(letters);
-        setLoading(false);
-      };
-      fetchData();
-    }, [selectedLanguage]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const letters = await getLetters(selectedLanguage);
+      setCurrentLetters(letters);
+      setLoading(false);
+    };
+    fetchData();
+  }, [selectedLanguage]);
 
   useEffect(() => {
     const fetchResults = async () => {
@@ -72,14 +72,14 @@ export default function SelectLanguage() {
       setResults(data);
     };
     fetchResults();
-    
+
     // Also listen for storage changes to update progress in real-time
     const handleStorageChange = async () => {
       const data = await getResults();
       setResults(data);
     };
     window.addEventListener('storage', handleStorageChange);
-    
+
     return () => {
       window.removeEventListener('storage', handleStorageChange);
     };
@@ -105,29 +105,43 @@ export default function SelectLanguage() {
     }
   };
 
-    function handleLanguageChange(e) {
-      setSelectedLanguage(() => {
-        return e.target.value;
-      });
-    }
+  function handleLanguageChange(e) {
+    setSelectedLanguage(() => {
+      return e.target.value;
+    });
+  }
 
-    const selectedLangLabel = {
-      ua: <Trans i18nKey="SelectLanguagePage.options.ua">Українська</Trans>,
-      en: <Trans i18nKey="SelectLanguagePage.options.en">Англійська</Trans>,
-      jp: <Trans i18nKey="SelectLanguagePage.options.jp">Японська</Trans>,
-    }[selectedLanguage];
+  const selectedLangLabel = {
+    ua: <Trans i18nKey="SelectLanguagePage.options.ua">Українська</Trans>,
+    en: <Trans i18nKey="SelectLanguagePage.options.en">Англійська</Trans>,
+    jp: <Trans i18nKey="SelectLanguagePage.options.jp">Японська</Trans>,
+  }[selectedLanguage];
 
   return (
     <section className="select-language">
-      {sketchOrNot === "free" ? (
-        <h1>Free Mode</h1>
-      ) : sketchOrNot === "true" ? (
-        <h1>Studying</h1>
-      ) : sketchOrNot === "upload" ? (
-        <h1>Upload File</h1>
-      ) : (
-        <h1>Testing</h1>
-      )}
+      <div className="select-language-header">
+        {sketchOrNot === "free" ? (
+          <>
+            <h1><Trans i18nKey="NavBar.list.ComparePage">Free Mode</Trans></h1>
+            <p className="mode-hint"><Trans i18nKey="NavBar.list.CompareHint">(напишіть літеру на папері та надішліть фото напису на перевірку)</Trans></p>
+          </>
+        ) : sketchOrNot === "true" ? (
+          <>
+            <h1><Trans i18nKey="NavBar.list.StudyPage">Studying</Trans></h1>
+            <p className="mode-hint"><Trans i18nKey="NavBar.list.StudyHint">(напишіть літеру по наданому шаблону)</Trans></p>
+          </>
+        ) : sketchOrNot === "upload" ? (
+          <>
+            <h1><Trans i18nKey="MainPage.uploadSection.title">Upload File</Trans></h1>
+            <p className="mode-hint"><Trans i18nKey="NavBar.list.CompareHint">(напишіть літеру на папері та надішліть фото напису на перевірку)</Trans></p>
+          </>
+        ) : (
+          <>
+            <h1><Trans i18nKey="NavBar.list.ReviewPage">Testing</Trans></h1>
+            <p className="mode-hint"><Trans i18nKey="NavBar.list.ReviewHint">(напишіть літеру без шаблону)</Trans></p>
+          </>
+        )}
+      </div>
       <h2>
         <Trans i18nKey="SelectLanguagePage.title">Виберіть мову</Trans>
       </h2>

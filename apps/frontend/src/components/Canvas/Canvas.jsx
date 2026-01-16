@@ -129,7 +129,7 @@ export default function Canvas() {
       }
       return;
     }
-    fetch(`${import.meta.env.VITE_API_URL}/letter`, {
+    fetch(`${import.meta.env.VITE_API_URL}letter`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -220,7 +220,7 @@ export default function Canvas() {
         }
         
         const resp = await fetch(
-          `${import.meta.env.VITE_API_URL}/sendImages`,
+          `${import.meta.env.VITE_API_URL}sendImages`,
           {
             headers: {
               "Content-Type": "application/json",

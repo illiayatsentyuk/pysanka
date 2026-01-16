@@ -1,13 +1,16 @@
 {
   "NavBar": {
     "list": {
-      "MainPage": "主页",
+      "MainPage": "首页",
       "StudyPage": "学习",
+      "StudyHint": "(使用提供的模板书写字母)",
       "ReviewPage": "测试",
+      "ReviewHint": "(不使用模板书写字母)",
       "ComparePage": "自由模式",
+      "CompareHint": "(在纸上书写字母并发送照片进行验证)",
       "QuickMode": "快速模式",
       "signin": "登录",
-      "logout": "退出"
+      "logout": "注销"
     }
   },
   "MainPage": {
