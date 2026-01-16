@@ -109,7 +109,7 @@ export default function UserLayout() {
                       setIsOpen(false);
                     }}
                   >
-                  Українська
+                  Українська 
                 </button>
                 <button
                   className={i18n.language === "en" ? "active-language" : ""}
