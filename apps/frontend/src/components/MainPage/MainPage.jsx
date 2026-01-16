@@ -76,9 +76,10 @@ export default function Main() {
             className="mode-card-button"
             onClick={() => navigate("/select-language?sketch=false")}
           >
+
             <Trans i18nKey="MainPage.startButton">Почати навчання →</Trans>
           </button>
-          
+
         </div>
 
 
