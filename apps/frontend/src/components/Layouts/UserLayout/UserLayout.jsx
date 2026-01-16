@@ -47,7 +47,7 @@ export default function UserLayout() {
     <main>
       <nav className="navbar">
         <Link className="navbar-logo" to="/">
-          Pysanka
+          Lettera
         </Link>
         
         <ul className="nav-links" id="nav-links" ref={navLinksRef}>
@@ -79,14 +79,6 @@ export default function UserLayout() {
               }
             >
               <Trans i18nKey="NavBar.list.ComparePage">Вільний режим</Trans>
-            </li>
-          </Link>
-          <Link className="nav-links-item" to="/select-language?sketch=quick">
-            <li
-              onClick={toggleMenu}
-              className={sketch === "quick" ? "current" : ""}
-            >
-              <Trans i18nKey="NavBar.list.QuickMode">Швидкий режим</Trans>
             </li>
           </Link>
         </ul>

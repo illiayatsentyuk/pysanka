@@ -13,7 +13,7 @@ const TIME_PER_LETTER = 20; // секунд на кожну літеру
 async function getLetters(language) {
   try {
     const response = await fetch(
-      "http://localhost:3000/letters",
+      `${import.meta.env.VITE_API_URL}/letters`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -35,7 +35,7 @@ async function getLetters(language) {
 
 async function getLetterImage(language, letter) {
   try {
-    const response = await fetch("http://localhost:3000/letter", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/letter`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -64,7 +64,7 @@ async function getLetterImage(language, letter) {
 async function sendLetterForEvaluation(language, letter, userImage, ethalonImage, systemLanguage) {
   try {
     const response = await fetch(
-      "http://localhost:3000/letter/quiz",
+      `${import.meta.env.VITE_API_URL}/letter/quiz`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -157,7 +157,7 @@ export default function Quiz() {
 
   useEffect(() => {
     if (!language) {
-      navigate("/select-language?sketch=quick");
+      navigate("/");
       return;
     }
 
@@ -166,7 +166,7 @@ export default function Quiz() {
       const allLetters = await getLetters(language);
       if (allLetters.length < TOTAL_LETTERS) {
         alert("Not enough letters available");
-        navigate("/select-language?sketch=quick");
+        navigate("/");
         return;
       }
 
@@ -416,7 +416,7 @@ export default function Quiz() {
           <div className="quiz-results-buttons">
             <button
               className="quiz-button quiz-button-primary"
-              onClick={() => navigate("/select-language?sketch=quick")}
+              onClick={() => navigate("/")}
             >
               <Trans i18nKey="quizPage.startAgain">Почати знову</Trans>
             </button>

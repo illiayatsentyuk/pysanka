@@ -31,7 +31,7 @@ export default i18n;
 //       headers["Authorization"] = `Bearer ${token}`;
 //     }
 //     // Fire-and-forget; no blocking/await required for UI responsiveness
-//     fetch("http://localhost:3000/setLanguage", {
+//     fetch(`${import.meta.env.VITE_API_URL}/setLanguage`, {
 //       method: "POST",
 //       headers,
 //       body: JSON.stringify({ language: lng }),

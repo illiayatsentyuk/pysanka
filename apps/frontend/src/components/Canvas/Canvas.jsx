@@ -129,7 +129,7 @@ export default function Canvas() {
       }
       return;
     }
-    fetch("http://localhost:3000/letter", {
+    fetch(`${import.meta.env.VITE_API_URL}/letter`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -220,7 +220,7 @@ export default function Canvas() {
         }
         
         const resp = await fetch(
-          "http://localhost:3000/sendImages",
+          `${import.meta.env.VITE_API_URL}/sendImages`,
           {
             headers: {
               "Content-Type": "application/json",

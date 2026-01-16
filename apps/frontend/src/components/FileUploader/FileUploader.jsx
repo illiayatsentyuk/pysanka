@@ -54,7 +54,7 @@ export default function FileUploader() {
     if (letter === null || language === null || !letter || !language) {
       return navigate(`/select-language?sketch=free`);
     }
-    fetch("http://localhost:3000/letter", {
+    fetch(`${import.meta.env.VITE_API_URL}/letter`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -129,7 +129,7 @@ export default function FileUploader() {
       const userBase64 = await toBase64(userFile);
 
       const response = await fetch(
-        "http://localhost:3000/sendImages",
+        `${import.meta.env.VITE_API_URL}/sendImages`,
         {
           method: "POST",
           headers: {

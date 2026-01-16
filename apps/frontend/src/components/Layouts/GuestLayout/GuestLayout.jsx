@@ -63,7 +63,7 @@ export default function UserLayout() {
       )}
       <nav className="navbar">
         <Link className="navbar-logo" to="/">
-          Pysanka
+          Lettera
         </Link>
         <ul className="nav-links" id="nav-links" ref={navLinksRef}>
           <Link className="nav-links-item" to="/select-language?sketch=true">
@@ -79,11 +79,6 @@ export default function UserLayout() {
           <Link className="nav-links-item" to="/select-language?sketch=free">
             <li onClick={toggleMenu}>
               <Trans i18nKey="NavBar.list.ComparePage">Вільний режим</Trans>
-            </li>
-          </Link>
-          <Link className="nav-links-item" to="/select-language?sketch=quick">
-            <li onClick={toggleMenu}>
-              <Trans i18nKey="NavBar.list.QuickMode">Швидкий режим</Trans>
             </li>
           </Link>
         </ul>

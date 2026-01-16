@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
-import { LuPenTool, LuFileText, LuFileCheck, LuTimer, LuUpload } from "react-icons/lu";
+import { LuPenTool, LuFileText, LuFileCheck, LuUpload } from "react-icons/lu";
 import "./MainPage.css";
 
 export default function Main() {
@@ -10,7 +10,7 @@ export default function Main() {
   return (
     <section className="main-page">
       <h1 className="main-page-title">
-        <Trans i18nKey="MainPage.title">Pysanka</Trans>
+        <Trans i18nKey="MainPage.title">Lettera</Trans>
       </h1>
       <p className="main-page-slogan">
         <Trans i18nKey="MainPage.slogan">Застосунок, що вчить писати літери</Trans>
@@ -75,26 +75,6 @@ export default function Main() {
           <button
             className="mode-card-button"
             onClick={() => navigate("/select-language?sketch=false")}
-          >
-            <Trans i18nKey="MainPage.startButton">Почати навчання →</Trans>
-          </button>
-        </div>
-
-        <div className="mode-card">
-          <div className="mode-icon">
-            <LuTimer />
-          </div>
-          <h3 className="mode-card-title">
-            <Trans i18nKey="MainPage.quickSection.title">Швидкий</Trans>
-          </h3>
-          <p className="mode-card-description">
-            <Trans i18nKey="MainPage.quickSection.description">
-              Навчіться писати літери, обводячи їх за трафаретом
-            </Trans>
-          </p>
-          <button
-            className="mode-card-button"
-            onClick={() => navigate("/select-language?sketch=quick")}
           >
             <Trans i18nKey="MainPage.startButton">Почати навчання →</Trans>
           </button>

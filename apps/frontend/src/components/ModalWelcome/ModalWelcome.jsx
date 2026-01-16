@@ -14,12 +14,12 @@ export default function ModalWelcome({ onClose }) {
       <div className="welcome-content">
         <h2>
           <Trans i18nKey="welcomeModal.title">
-            Ласкаво просимо до Pysanka!
+            Ласкаво просимо до Lettera!
           </Trans>
         </h2>
         <p>
           <Trans i18nKey="welcomeModal.description">
-            Ласкаво просимо до Pysanka! Почніть навчання прямо зараз.
+            Ласкаво просимо до Lettera! Почніть навчання прямо зараз.
           </Trans>
         </p>
         <div className="welcome-buttons">

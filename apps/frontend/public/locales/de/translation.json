@@ -11,7 +11,7 @@
     }
   },
   "MainPage": {
-    "title": "Pysanka",
+    "title": "Lettera",
     "slogan": "Eine App, die Ihnen das Schreiben von Buchstaben beibringt",
     "chooseMode": "Wählen Sie einen Modus",
     "startButton": "Lernen beginnen →",
@@ -97,7 +97,7 @@
     "goHome": "Zur Startseite"
   },
   "welcomeModal": {
-    "title": "Willkommen bei Pysanka!",
+    "title": "Willkommen bei Lettera!",
     "description": "Für den vollen Zugriff auf die App, melden Sie sich bitte an oder registrieren Sie sich.",
     "loginButton": "Anmelden",
     "laterButton": "Später"

@@ -23,7 +23,7 @@ async function getResults() {
 async function getLetters(language) {
   try {
     const response = await fetch(
-      "http://localhost:3000/letters",
+      `${import.meta.env.VITE_API_URL}/letters`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -86,12 +86,6 @@ export default function SelectLanguage() {
   }, []);
 
   const handleStart = () => {
-    if (sketchOrNot === "quick") {
-      // Для quick режиму не потрібна літера - переходимо одразу
-      navigate(`/quiz?language=${selectedLanguage}`);
-      return;
-    }
-    
     if (selectedLetter !== null) {
       if (sketchOrNot === "free") {
         navigate(
@@ -129,8 +123,6 @@ export default function SelectLanguage() {
         <h1>Free Mode</h1>
       ) : sketchOrNot === "true" ? (
         <h1>Studying</h1>
-      ) : sketchOrNot === "quick" ? (
-        <h1>Quick Mode</h1>
       ) : sketchOrNot === "upload" ? (
         <h1>Upload File</h1>
       ) : (
@@ -164,53 +156,37 @@ export default function SelectLanguage() {
               </Trans>
               {selectedLangLabel}
             </p>
-            {sketchOrNot === "quick" ? (
-              // Для quick режиму показуємо кнопку одразу без вибору літер
-              <div className="quick-mode-info">
-                <p>
-                  <Trans i18nKey="SelectLanguagePage.quickModeInfo">
-                    В цьому режимі вам буде надано 6 випадкових літер для швидкого тестування
-                  </Trans>
-                </p>
-                <button className="syledButton" onClick={handleStart}>
-                  <Trans i18nKey="SelectLanguagePage.startButton">Почати</Trans>
-                </button>
-              </div>
+            {loading ? (
+              <p>Loading...</p>
             ) : (
-              <>
-                {loading ? (
-                  <p>Loading...</p>
-                ) : (
-                  <ul className="select-language-list">
-                    {currentLetters.map((letter) => {
-                      const status =
-                        results.progress?.[selectedLanguage]?.[letter.letter]
-                          ?.status ?? null;
-                      let statusClass = "";
+              <ul className="select-language-list">
+                {currentLetters.map((letter) => {
+                  const status =
+                    results.progress?.[selectedLanguage]?.[letter.letter]
+                      ?.status ?? null;
+                  let statusClass = "";
 
-                      if (status === STATUS.GOOD) statusClass = "done";
-                      else if (status === STATUS.AVERAGE) statusClass = "half-done";
-                      else if (status === STATUS.BAD) statusClass = "poor";
+                  if (status === STATUS.GOOD) statusClass = "done";
+                  else if (status === STATUS.AVERAGE) statusClass = "half-done";
+                  else if (status === STATUS.BAD) statusClass = "poor";
 
-                      return (
-                        <li key={`${letter.id}-${letter.letter}`}>
-                          <button
-                            className={`select-language-button ${selectedLetter === letter.letter ? "active" : statusClass}`}
-                            onClick={() => setSelectedLetter(letter.letter)}
-                            onDoubleClick={() => handleStart()}
-                          >
-                            {letter.letter}
-                          </button>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
-                <button className="syledButton" onClick={handleStart}>
-                  <Trans i18nKey="SelectLanguagePage.startButton">Почати</Trans>
-                </button>
-              </>
+                  return (
+                    <li key={`${letter.id}-${letter.letter}`}>
+                      <button
+                        className={`select-language-button ${selectedLetter === letter.letter ? "active" : statusClass}`}
+                        onClick={() => setSelectedLetter(letter.letter)}
+                        onDoubleClick={() => handleStart()}
+                      >
+                        {letter.letter}
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
             )}
+            <button className="syledButton" onClick={handleStart}>
+              <Trans i18nKey="SelectLanguagePage.startButton">Почати</Trans>
+            </button>
           </div>
         )}
       </div>

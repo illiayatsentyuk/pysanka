@@ -7,10 +7,7 @@ import { GetLettersDto } from './dto/get-letters.dto';
 import * as path from 'path';
 import * as fs from 'fs';
 import { SendImagesDto } from './dto/send-images.dto';
-import { User } from 'src/users/user.entity';
 import { OpenAI } from 'openai';
-import { Repository } from 'typeorm';
-import { InjectRepository } from '@nestjs/typeorm';
 import { UpdateProgressDto } from './dto/update-progress.dto';
 import { ConfigService } from '@nestjs/config';
 
@@ -59,7 +56,6 @@ interface CustomOpenAIClient {
 export class LetterService {
   private openai: CustomOpenAIClient;
   constructor(
-    @InjectRepository(User) private userRepo: Repository<User>,
     private configService: ConfigService,
   ) {
     const openaiApiKey = this.configService.get<string>('OPENAI_API_KEY');
@@ -254,65 +250,17 @@ export class LetterService {
   }
 
   async getUser(userId: number) {
-    try {
-      const user: User | null = await this.userRepo.findOne({
-        where: { id: userId },
-      });
-      if (!user) {
-        throw new BadRequestException('User not found');
-      }
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-      return { user: user };
-    } catch (e) {
-      console.log(e);
-      const error = e as Error;
-      throw new BadRequestException(error.message);
-    }
+    // Database removed - progress is stored in localStorage on frontend
+    return { user: { id: userId, results: {} } };
   }
 
   async getUserProgress(userId: number) {
-    try {
-      const user: User | null = await this.userRepo.findOne({
-        where: { id: userId },
-      });
-      if (!user) {
-        throw new BadRequestException('User not found');
-      }
-      return {
-        progress: user.results,
-      };
-    } catch (e) {
-      console.log(e);
-      const error = e as Error;
-      throw new BadRequestException(error.message);
-    }
+    // Database removed - progress is stored in localStorage on frontend
+    return { progress: {} };
   }
-  async updateUserProgress(userId: number, body: UpdateProgressDto) {
-    const { letter, status, language } = body;
-    try {
-      const user: User | null = await this.userRepo.findOne({
-        where: { id: userId },
-      });
-      if (!user) {
-        throw new BadRequestException('User not found');
-      }
-      if (!user.results) {
-        user.results = {} as UserResults;
-      }
-      if (!user.results[language]) {
-        user.results[language] = {} as LanguageResults;
-      }
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      user.results[language][letter] = { status: status };
-      const savedUser: User = await this.userRepo.save(user);
-      return {
-        user: savedUser,
-      };
-    } catch (e) {
-      console.log(e);
-      const error = e as Error;
-      throw new BadRequestException(error.message);
-    }
+  async updateUserProgress(userId: number, body: UpdateProgressDto) {
+    // Database removed - progress is stored in localStorage on frontend
+    return { message: 'Progress is stored in localStorage on the frontend' };
   }
 }
