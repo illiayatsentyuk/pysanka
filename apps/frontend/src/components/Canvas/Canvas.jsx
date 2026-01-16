@@ -255,8 +255,8 @@ export default function Canvas() {
           resultModalRef.current.open();
           setIsLoading(false);
 
-          // Always save progress to localStorage as requested
-          if (response.percents !== undefined) {
+          // Save progress to localStorage if user is not logged in
+          if (!token && response.percents !== undefined) {
             saveProgressToLocalStorage(language, letter, response.percents);
           }
 

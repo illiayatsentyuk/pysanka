@@ -32,30 +32,6 @@ export default function FileUploader() {
   const letter = searchParams.get("letter");
   const language = searchParams.get("language");
 
-  // Helper function to save progress to localStorage
-  const saveProgressToLocalStorage = (language, letter, percents) => {
-    try {
-      const progressKey = 'userProgress';
-      let progress = JSON.parse(localStorage.getItem(progressKey) || '{}');
-
-      if (!progress[language]) {
-        progress[language] = {};
-      }
-
-      let status = 'bad';
-      if (percents > 30 && percents < 70) {
-        status = 'average';
-      } else if (percents >= 70) {
-        status = 'good';
-      }
-
-      progress[language][letter] = { status };
-      localStorage.setItem(progressKey, JSON.stringify(progress));
-    } catch (e) {
-      console.error('Failed to save progress to localStorage:', e);
-    }
-  };
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -179,11 +155,6 @@ export default function FileUploader() {
       console.log(data);
       setModalText(data.percents);
       setAdvice(data.result.advice);
-
-      // Always save progress to localStorage as requested
-      if (data.percents !== undefined) {
-        saveProgressToLocalStorage(language, letter, data.percents);
-      }
     } catch (error) {
       console.error("Error sending files:", error);
       setModalText("Error occurred while sending files.");
