@@ -23,7 +23,7 @@ async function getResults() {
 async function getLetters(language) {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_API_URL}/letters`,
+      `${import.meta.env.VITE_API_URL}letters`,
       {
         headers: {
           "Content-Type": "application/json",
