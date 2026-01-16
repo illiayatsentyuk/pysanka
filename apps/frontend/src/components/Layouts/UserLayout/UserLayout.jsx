@@ -182,6 +182,7 @@ export default function UserLayout() {
             href="https://docs.google.com/document/d/1rCVxcG4-D7zVxg4Mc-E9Cs4ZfaS8KuyTwaBcuxzsc60/edit?usp=sharing"
             target="_blank"
           >
+            
             <img
               src={question}
               alt="question"
