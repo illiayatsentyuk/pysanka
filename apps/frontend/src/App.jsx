@@ -5,7 +5,6 @@ import MainPage from "./components/MainPage/MainPage.jsx";
 import FileUploader from "./components/FileUploader/FileUploader.jsx";
 import SelectLanguage from "./components/SelectLanguage/SelectLanguage.jsx";
 import NotFound from "./components/404/404.jsx";
-import Quiz from "./components/Quiz/Quiz.jsx";
 
 export default function App() {
   return (
