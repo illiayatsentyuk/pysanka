@@ -240,6 +240,9 @@ export default function FileUploader() {
           <span className="nav-letter">{nextLetter}</span>
         </div>
       </div>
+      <p className="mode-hint" style={{ textAlign: 'center', marginTop: '10px' }}>
+        <Trans i18nKey="NavBar.list.CompareHint">(напишіть літеру на папері та надішліть фото напису на перевірку)</Trans>
+      </p>
       <div className="file-uploader-sections">
         {/* Еталонна буква для порівняння */}
         {letterImage && (

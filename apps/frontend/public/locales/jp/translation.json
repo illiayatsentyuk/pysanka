@@ -54,6 +54,7 @@
     },
     "subtitle": "選択された言語: ",
     "startButton": "開始",
+    "chooseLetter": "文字を選択",
     "quickModeInfo": "このモードでは、クイックテスト用にランダムな6文字が提供されます"
   },
   "comparePage": {

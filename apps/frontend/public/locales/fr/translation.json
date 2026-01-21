@@ -54,6 +54,7 @@
     },
     "subtitle": "Langue sélectionnée : ",
     "startButton": "Démarrer",
+    "chooseLetter": "Choisissez une lettre",
     "quickModeInfo": "Dans ce mode, vous recevrez 6 lettres aléatoires pour un test rapide"
   },
   "comparePage": {
