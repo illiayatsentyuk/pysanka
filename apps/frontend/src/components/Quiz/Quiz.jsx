@@ -10,7 +10,7 @@ import "./Quiz.css";
 async function getLetters(language) {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_API_URL}/letters`,
+      `${import.meta.env.VITE_API_URL}letters`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -32,7 +32,7 @@ async function getLetters(language) {
 
 async function getLetterImage(language, letter) {
   try {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/letter`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}letter`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -61,7 +61,7 @@ async function getLetterImage(language, letter) {
 async function sendLetterForEvaluation(language, letter, userImage, ethalonImage, systemLanguage) {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_API_URL}/sendImages`,
+      `${import.meta.env.VITE_API_URL}sendImages`,
       {
         headers: {
           "Content-Type": "application/json",
