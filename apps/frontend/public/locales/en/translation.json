@@ -8,6 +8,7 @@
       "ReviewHint": "(write the letter without a template)",
       "ComparePage": "Free Mode",
       "CompareHint": "(write the letter on paper and send a photo for verification)",
+      "QuizPage": "Quiz",
       "QuickMode": "Quick Mode",
       "signin": "Sign In",
       "logout": "Logout"
@@ -88,6 +89,9 @@
     "continueButton": "Continue"
   },
   "quizPage": {
+    "title": "Quiz Mode",
+    "description": "You will be given 6 random letters to write. Each letter has a time limit.",
+    "startQuiz": "Start Quiz",
     "progress": "Letter {{current}} of {{total}}",
     "submit": "Submit",
     "submitting": "Submitting...",

@@ -233,6 +233,7 @@ export class LetterService {
         },
       );
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      console.log(response.output_text);
       const resul: OpenAIResponse = JSON.parse(response.output_text);
       const percents: number = resul.percents;
 

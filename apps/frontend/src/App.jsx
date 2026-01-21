@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./components/MainPage/MainPage.jsx";
 import FileUploader from "./components/FileUploader/FileUploader.jsx";
 import SelectLanguage from "./components/SelectLanguage/SelectLanguage.jsx";
+import QuizSelectLanguage from "./components/QuizSelectLanguage/QuizSelectLanguage.jsx";
+import Quiz from "./components/Quiz/Quiz.jsx";
 import NotFound from "./components/404/404.jsx";
 
 export default function App() {
@@ -15,6 +17,8 @@ export default function App() {
           <Route path="canvas" element={<Canvas />} />
           <Route path="file-uploader" element={<FileUploader />} />
           <Route path="select-language" element={<SelectLanguage />} />
+          <Route path="quiz-select-language" element={<QuizSelectLanguage />} />
+          <Route path="quiz" element={<Quiz />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
