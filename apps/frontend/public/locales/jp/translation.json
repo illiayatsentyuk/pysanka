@@ -8,6 +8,7 @@
       "ReviewHint": "(テンプレートなしで文字を書く)",
       "ComparePage": "フリーモード",
       "CompareHint": "(紙に文字を書き、確認のために写真を送る)",
+      "QuizPage": "クイズ",
       "QuickMode": "クイックモード",
       "signin": "ログイン",
       "logout": "ログアウト"
@@ -89,16 +90,21 @@
     "continueButton": "続行"
   },
   "quizPage": {
+    "title": "クイズモード",
+    "description": "6つのランダムな文字が与えられます。各文字には時間制限があります。",
+    "startQuiz": "クイズを開始",
     "progress": "文字 {{current}} / {{total}}",
     "submit": "送信",
     "submitting": "送信中...",
     "clear": "クリア",
     "resultsTitle": "あなたの結果",
     "average": "平均スコア",
+    "language": "言語",
     "loadingResults": "結果を読み込んでいます...",
     "loadingResult": "読み込み中...",
     "startAgain": "もう一度始める",
-    "goHome": "ホームへ戻る"
+    "goHome": "ホームへ戻る",
+    "downloadPdf": "結果をダウンロード (PDF)"
   },
   "welcomeModal": {
     "title": "Letteraへようこそ！",

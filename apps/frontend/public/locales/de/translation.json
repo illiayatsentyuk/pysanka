@@ -8,6 +8,7 @@
       "ReviewHint": "(schreiben Sie den Buchstaben ohne Vorlage)",
       "ComparePage": "Freier Modus",
       "CompareHint": "(schreiben Sie den Buchstaben auf Papier und senden Sie ein Foto zur Überprüfung)",
+      "QuizPage": "Quiz",
       "QuickMode": "Schnellmodus",
       "signin": "Anmelden",
       "logout": "Abmelden"
@@ -89,16 +90,21 @@
     "continueButton": "Weiter"
   },
   "quizPage": {
+    "title": "Quiz-Modus",
+    "description": "Sie erhalten 6 zufällige Buchstaben zum Schreiben. Jeder Buchstabe hat ein Zeitlimit.",
+    "startQuiz": "Quiz starten",
     "progress": "Buchstabe {{current}} von {{total}}",
     "submit": "Absenden",
     "submitting": "Wird gesendet...",
     "clear": "Löschen",
     "resultsTitle": "Ihre Ergebnisse",
     "average": "Durchschnitt",
+    "language": "Sprache",
     "loadingResults": "Ergebnisse werden geladen...",
     "loadingResult": "Wird geladen...",
     "startAgain": "Neu starten",
-    "goHome": "Zur Startseite"
+    "goHome": "Zur Startseite",
+    "downloadPdf": "Ergebnisse herunterladen (PDF)"
   },
   "welcomeModal": {
     "title": "Willkommen bei Lettera!",

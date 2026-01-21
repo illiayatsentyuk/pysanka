@@ -85,6 +85,68 @@ export class LetterService {
     if (prefix.startsWith('PHN2Zy')) return 'image/svg+xml'; // SVG (base64-encoded)
     return 'image/png';
   }
+
+  /**
+   * Parses potentially invalid JSON by removing log prefixes and extracting valid JSON
+   * Handles cases where each line has prefixes like "lettersBack:dev: " or similar patterns
+   */
+  private parseJsonWithLogPrefixes(text: string): OpenAIResponse {
+    try {
+      // First, try to parse directly in case it's already valid JSON
+      return JSON.parse(text) as OpenAIResponse;
+    } catch (e) {
+      // If direct parsing fails, try to clean the text
+      let cleanedText = text.trim();
+
+      // Remove common log prefix patterns (e.g., "lettersBack:dev: ", "service:level: ", etc.)
+      // Pattern: matches text like "word:word: " or "word:word:word: " at the start of lines
+      cleanedText = cleanedText.replace(
+        /^[a-zA-Z0-9_-]+:[a-zA-Z0-9_-]+:\s*/gm,
+        '',
+      );
+
+      // Also handle patterns like "[service] level: " or similar
+      cleanedText = cleanedText.replace(/^\[[^\]]+\]\s*[a-zA-Z]+:\s*/gm, '');
+
+      // Try to extract JSON from markdown code blocks if present
+      const jsonBlockMatch = cleanedText.match(
+        /```(?:json)?\s*(\{[\s\S]*\})\s*```/,
+      );
+      if (jsonBlockMatch) {
+        cleanedText = jsonBlockMatch[1];
+      }
+
+      // Try to find JSON object boundaries
+      const firstBrace = cleanedText.indexOf('{');
+      const lastBrace = cleanedText.lastIndexOf('}');
+      if (firstBrace !== -1 && lastBrace !== -1 && lastBrace > firstBrace) {
+        cleanedText = cleanedText.substring(firstBrace, lastBrace + 1);
+      }
+
+      // Clean up any remaining trailing commas before closing braces/brackets
+      cleanedText = cleanedText.replace(/,(\s*[}\]])/g, '$1');
+
+      try {
+        return JSON.parse(cleanedText) as OpenAIResponse;
+      } catch {
+        // If still failing, try to extract just the JSON object more aggressively
+        // Look for the JSON structure pattern
+        const jsonMatch = cleanedText.match(/\{[\s\S]*\}/);
+        if (jsonMatch) {
+          try {
+            return JSON.parse(jsonMatch[0]) as OpenAIResponse;
+          } catch {
+            throw new Error(
+              `Failed to parse JSON after cleaning. Original error: ${(e as Error).message}, Cleaned text: ${cleanedText.substring(0, 200)}`,
+            );
+          }
+        }
+        throw new Error(
+          `Could not extract valid JSON. Original error: ${(e as Error).message}`,
+        );
+      }
+    }
+  }
   getImageLetter(body: GetImageDto) {
     const selectedLetter = body.letter.toUpperCase();
     const selectedLanguage = body.language;
@@ -233,7 +295,7 @@ export class LetterService {
         },
       );
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      const resul: OpenAIResponse = JSON.parse(response.output_text);
+      const resul: OpenAIResponse = this.parseJsonWithLogPrefixes(response.output_text);
       const percents: number = resul.percents;
 
       // Progress is now stored in localStorage on the frontend

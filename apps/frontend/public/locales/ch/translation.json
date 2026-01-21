@@ -8,6 +8,7 @@
       "ReviewHint": "(不使用模板书写字母)",
       "ComparePage": "自由模式",
       "CompareHint": "(在纸上书写字母并发送照片进行验证)",
+      "QuizPage": "测验",
       "QuickMode": "快速模式",
       "signin": "登录",
       "logout": "注销"
@@ -89,16 +90,21 @@
     "continueButton": "继续"
   },
   "quizPage": {
+    "title": "测验模式",
+    "description": "您将获得6个随机字母来书写。每个字母都有时间限制。",
+    "startQuiz": "开始测验",
     "progress": "字母 {{current}} / {{total}}",
     "submit": "提交",
     "submitting": "提交中...",
     "clear": "清除",
     "resultsTitle": "您的结果",
     "average": "平均分数",
+    "language": "语言",
     "loadingResults": "加载结果中...",
     "loadingResult": "加载中...",
     "startAgain": "重新开始",
-    "goHome": "回到主页"
+    "goHome": "回到主页",
+    "downloadPdf": "下载结果 (PDF)"
   },
   "welcomeModal": {
     "title": "欢迎来到 Lettera！",

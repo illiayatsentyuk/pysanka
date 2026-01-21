@@ -1,0 +1,776 @@
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: calc(100vh - 80px);
+  background-color: white;
+  gap: 2rem;
+  background: #fff;
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+/* Таймер-бар під хедером */
+.quiz-timer-bar {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background-color: #e2e8f0;
+  z-index: 100;
+  width: 100%;
+}
+
+.quiz-timer-progress {
+  height: 100%;
+  background-color: #87CEEB;
+  transition: width 1s linear;
+  width: 0%;
+}
+
+.quiz-timer-text {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+/* Прогресс літер */
+.quiz-progress {
+  margin-top: 60px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #4A90E2;
+  text-align: center;
+}
+
+/* Обгортка для літери та кнопки озвучування */
+.quiz-letter-display-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 20px 0;
+}
+
+/* Відображення поточної літери */
+.quiz-letter-display {
+  font-size: 120px;
+  font-weight: bold;
+  color: #2d3748;
+  text-align: center;
+}
+
+/* Кнопка озвучування */
+.quiz-speak-button {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #87CEEB 0%, #6BB6E0 100%);
+  border: none;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(135, 206, 235, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz-speak-button:hover:not(:disabled) {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 6px 16px rgba(135, 206, 235, 0.4);
+}
+
+.quiz-speak-button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.quiz-speak-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Canvas */
+.quiz-canvas-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.quiz-canvas-wrapper .react-sketch-canvas {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+}
+
+/* Кнопки */
+.quiz-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.quiz-button {
+  font-weight: 500;
+  width: 200px;
+  background-color: #87CEEB;
+  padding: 12px 20px;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.quiz-button:hover:not(:disabled) {
+  background-color: #6BB6E0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(135, 206, 235, 0.3);
+}
+
+.quiz-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.quiz-button-submit {
+  background-color: #87CEEB;
+}
+
+.quiz-button-clear {
+  background-color: #6BB6E0;
+}
+
+/* Результати квізу */
+.quiz-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 900px;
+  padding: 2rem;
+}
+
+.quiz-results-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #4A90E2;
+  text-align: center;
+  margin: 0;
+}
+
+/* Середній бал картка */
+.quiz-average-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #87CEEB 0%, #6BB6E0 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(135, 206, 235, 0.3);
+  width: 100%;
+}
+
+.quiz-average-label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.quiz-average-loading-indicator {
+  font-size: 0.9rem;
+  font-weight: 400;
+  opacity: 0.9;
+  text-transform: none;
+}
+
+.quiz-average-score {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Сітка результатів */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.result-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.result-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  border-color: #87CEEB;
+}
+
+.result-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.result-letter-badge {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #4A90E2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(135, 206, 235, 0.1);
+}
+
+.result-percentage-badge {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.score-excellent {
+  background-color: #4caf50;
+  color: white;
+}
+
+.score-good {
+  background-color: #8bc34a;
+  color: white;
+}
+
+.score-average {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.score-poor {
+  background-color: #f44336;
+  color: white;
+}
+
+.result-advice-text {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+  padding-top: 0.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Лоадер для завантаження результатів */
+.result-loading {
+  background-color: #e2e8f0 !important;
+  color: #666 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+}
+
+.mini-loader {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #87CEEB;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.quiz-loading-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.quiz-loading-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #4A90E2;
+  padding: 1rem;
+  background-color: rgba(135, 206, 235, 0.1);
+  border-radius: 12px;
+  width: 100%;
+}
+
+.result-card-loading {
+  opacity: 0.8;
+  border-style: dashed;
+}
+
+.result-loading-text {
+  font-size: 0.85rem;
+  color: #999;
+  text-align: center;
+  padding-top: 0.5rem;
+  font-style: italic;
+}
+
+.quiz-results-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.quiz-button-primary {
+  background-color: #87CEEB;
+}
+
+.quiz-button-primary:hover:not(:disabled) {
+  background-color: #6BB6E0;
+}
+
+.quiz-button-secondary {
+  background-color: #e2e8f0;
+  color: #2d3748;
+}
+
+.quiz-button-secondary:hover:not(:disabled) {
+  background-color: #cbd5e0;
+}
+
+/* Loader */
+.quiz-container .loader-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #87CEEB;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 50px auto;
+}
+
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* PDF Specific Styles */
+.pdf-content-wrapper {
+  width: 100%;
+  max-width: 900px;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.pdf-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 3px solid #87CEEB;
+}
+
+.pdf-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.5px;
+}
+
+.pdf-meta {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 0.95rem;
+  color: #666;
+  flex-wrap: wrap;
+}
+
+.pdf-language,
+.pdf-date {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  background-color: #f7fafc;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.pdf-average-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2rem;
+  margin: 2rem 0;
+  background: linear-gradient(135deg, #87CEEB 0%, #6BB6E0 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(135, 206, 235, 0.25);
+}
+
+.pdf-average-label {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.pdf-average-score {
+  font-size: 4rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+}
+
+.pdf-results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.pdf-result-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 10px;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.pdf-result-card:hover {
+  border-color: #87CEEB;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(135, 206, 235, 0.2);
+}
+
+.pdf-result-card-loading {
+  opacity: 0.6;
+  border-style: dashed;
+}
+
+.pdf-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pdf-letter-badge {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #4A90E2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(135, 206, 235, 0.15) 0%, rgba(107, 182, 224, 0.15) 100%);
+  border: 3px solid rgba(135, 206, 235, 0.3);
+}
+
+.pdf-percentage-badge {
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-result-loading {
+  background-color: #e2e8f0 !important;
+  color: #666 !important;
+}
+
+.pdf-advice-text {
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.7;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+  font-style: italic;
+}
+
+/* Адаптивність для планшетів */
+@media (max-width: 1024px) {
+  .pdf-content-wrapper {
+    max-width: 100%;
+    padding: 2rem;
+  }
+
+  .pdf-results-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .pdf-title {
+    font-size: 2rem;
+  }
+
+  .pdf-average-score {
+    font-size: 3.5rem;
+  }
+
+  .pdf-letter-badge {
+    width: 60px;
+    height: 60px;
+    font-size: 2.5rem;
+  }
+}
+
+/* Адаптивність для мобільних пристроїв */
+@media (max-width: 768px) {
+  .quiz-container {
+    box-shadow: 0 3px 12px rgba(56,182,255,0.04), 0 0.5px 3px #e6f7fd;
+    border-radius: 7px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0.5rem;
+  }
+
+  .quiz-letter-display-wrapper {
+    gap: 1rem;
+  }
+
+  .quiz-letter-display {
+    font-size: 80px;
+  }
+
+  .quiz-speak-button {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+  }
+
+  .quiz-canvas-wrapper .react-sketch-canvas {
+    width: 250px !important;
+    height: 250px !important;
+  }
+
+  .quiz-progress {
+    margin-top: 40px;
+    font-size: 1rem;
+  }
+
+  .quiz-timer-text {
+    font-size: 0.9rem;
+    right: 10px;
+  }
+
+  .quiz-results {
+    padding: 1rem;
+    margin-top: 60px;
+  }
+
+  .quiz-results-title {
+    font-size: 1.5rem;
+  }
+
+  .quiz-average-card {
+    padding: 1.5rem;
+  }
+
+  .quiz-average-label {
+    font-size: 1rem;
+  }
+
+  .quiz-average-score {
+    font-size: 2.5rem;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .result-letter-badge {
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+  }
+
+  .result-percentage-badge {
+    font-size: 1.2rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .quiz-results-buttons {
+    flex-direction: column;
+  }
+
+  .quiz-button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* PDF адаптивність для мобільних */
+  .pdf-content-wrapper {
+    padding: 1.5rem 1rem;
+  }
+
+  .pdf-title {
+    font-size: 1.8rem;
+  }
+
+  .pdf-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .pdf-average-section {
+    padding: 1.5rem 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .pdf-average-label {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .pdf-average-score {
+    font-size: 3rem;
+  }
+
+  .pdf-results-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .pdf-result-card {
+    padding: 1.2rem;
+  }
+
+  .pdf-letter-badge {
+    width: 55px;
+    height: 55px;
+    font-size: 2.2rem;
+  }
+
+  .pdf-percentage-badge {
+    font-size: 1.3rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .pdf-advice-text {
+    font-size: 0.9rem;
+  }
+}
+
+/* Адаптивність для малих мобільних (< 480px) */
+@media (max-width: 480px) {
+  .quiz-letter-display-wrapper {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .quiz-letter-display {
+    font-size: 70px;
+  }
+
+  .quiz-speak-button {
+    font-size: 1.8rem;
+    width: 55px;
+    height: 55px;
+  }
+
+  .quiz-canvas-wrapper .react-sketch-canvas {
+    width: 220px !important;
+    height: 220px !important;
+  }
+
+  .pdf-content-wrapper {
+    padding: 1rem;
+  }
+
+  .pdf-title {
+    font-size: 1.5rem;
+  }
+
+  .pdf-average-score {
+    font-size: 2.5rem;
+  }
+
+  .pdf-letter-badge {
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+
+  .pdf-percentage-badge {
+    font-size: 1.2rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .result-advice-text,
+  .pdf-advice-text {
+    font-size: 0.85rem;
+  }
+}
+
+/* Print styles for better PDF output */
+@media print {
+  .pdf-content-wrapper {
+    box-shadow: none;
+    border-radius: 0;
+    padding: 1.5rem;
+  }
+  
+  .pdf-result-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  .pdf-average-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  .pdf-header {
+    page-break-after: avoid;
+  }
+}

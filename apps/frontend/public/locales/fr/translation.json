@@ -8,6 +8,7 @@
       "ReviewHint": "(écrivez la lettre sans modèle)",
       "ComparePage": "Mode libre",
       "CompareHint": "(écrivez la lettre sur papier et envoyez une photo pour vérification)",
+      "QuizPage": "Quiz",
       "QuickMode": "Mode rapide",
       "signin": "Se connecter",
       "logout": "Se déconnecter"
@@ -89,16 +90,21 @@
     "continueButton": "Continuer"
   },
   "quizPage": {
+    "title": "Mode quiz",
+    "description": "Vous recevrez 6 lettres aléatoires à écrire. Chaque lettre a une limite de temps.",
+    "startQuiz": "Commencer le quiz",
     "progress": "Lettre {{current}} sur {{total}}",
     "submit": "Soumettre",
     "submitting": "Envoi en cours...",
     "clear": "Effacer",
     "resultsTitle": "Vos résultats",
     "average": "Score moyen",
+    "language": "Langue",
     "loadingResults": "Chargement des résultats...",
     "loadingResult": "Chargement...",
     "startAgain": "Recommencer",
-    "goHome": "Retour à l'accueil"
+    "goHome": "Retour à l'accueil",
+    "downloadPdf": "Télécharger les résultats (PDF)"
   },
   "welcomeModal": {
     "title": "Bienvenue sur Lettera !",

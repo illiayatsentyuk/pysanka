@@ -8,6 +8,7 @@
       "ReviewHint": "(scrieți litera fără șablon)",
       "ComparePage": "Mod liber",
       "CompareHint": "(scrieți litera pe hârtie și trimiteți o fotografie pentru verificare)",
+      "QuizPage": "Test",
       "QuickMode": "Mod rapid",
       "signin": "Conectare",
       "logout": "Deconectare"
@@ -89,16 +90,21 @@
     "continueButton": "Continuă"
   },
   "quizPage": {
+    "title": "Mod test",
+    "description": "Veți primi 6 litere aleatorii de scris. Fiecare literă are o limită de timp.",
+    "startQuiz": "Începe testul",
     "progress": "Litera {{current}} din {{total}}",
     "submit": "Trimite",
     "submitting": "Se trimite...",
     "clear": "Șterge",
     "resultsTitle": "Rezultatele tale",
     "average": "Scor mediu",
+    "language": "Limba",
     "loadingResults": "Se încarcă rezultatele...",
     "loadingResult": "Se încarcă...",
     "startAgain": "Începe din nou",
-    "goHome": "Înapoi la pagina principală"
+    "goHome": "Înapoi la pagina principală",
+    "downloadPdf": "Descarcă rezultatele (PDF)"
   },
   "welcomeModal": {
     "title": "Bun venit la Lettera!",

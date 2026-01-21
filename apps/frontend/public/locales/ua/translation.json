@@ -8,6 +8,7 @@
       "ReviewHint": "(напишіть літеру без шаблону)",
       "ComparePage": "Вільний режим",
       "CompareHint": "(напишіть літеру на папері та надішліть фото напису на перевірку)",
+      "QuizPage": "Тест",
       "QuickMode": "Швидкий режим",
       "signin": "Увійти",
       "logout": "Вийти"
@@ -89,16 +90,21 @@
     "continueButton": "Продовжити"
   },
   "quizPage": {
+    "title": "Режим тестування",
+    "description": "Вам буде надано 6 випадкових літер для написання. Кожна літера має обмеження часу.",
+    "startQuiz": "Почати тест",
     "progress": "Літера {{current}} з {{total}}",
     "submit": "Відправити",
     "submitting": "Відправляємо...",
     "clear": "Очистити",
     "resultsTitle": "Ваші результати",
     "average": "Середній бал",
+    "language": "Мова",
     "loadingResults": "Завантаження результатів...",
     "loadingResult": "Завантаження...",
     "startAgain": "Почати знову",
-    "goHome": "На головну"
+    "goHome": "На головну",
+    "downloadPdf": "Завантажити результати (PDF)"
   },
   "welcomeModal": {
     "title": "Ласкаво просимо до Lettera!",
