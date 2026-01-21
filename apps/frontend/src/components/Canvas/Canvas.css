@@ -120,8 +120,69 @@
   align-items: center;
   margin: 20px 0;
   background-color: #fff;
-  background-image: linear-gradient(to right, #ccc 1px, transparent 1px), linear-gradient(to bottom, #ccc 1px, transparent 1px);
-  background-size: 20px 20px;
+
+  /* background-image:
+    repeating-linear-gradient(115deg,
+      rgba(0, 0, 0, 0.15) 0px,
+      rgba(0, 0, 0, 0.15) 2px,
+      transparent 2px,
+      transparent 150px),
+    linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.25) 2px,
+      transparent 2px,
+      transparent 25px,
+      rgba(0, 0, 0, 0.15) 27px,
+      transparent 27px,
+      transparent 50px,
+      rgba(0, 0, 0, 0.25) 52px,
+      transparent 52px);
+  background-size: 100% 100%, 100% 150px;
+  background-position: 0 0, 0 0; */
+}
+
+.canvas-wrapper-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.canvas-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 8px 16px;
+  background-color: #f7fafc;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  user-select: none;
+}
+
+.grid-toggle:hover {
+  background-color: #edf2f7;
+  border-color: #cbd5e0;
+}
+
+.grid-toggle input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #3fb5e4;
+}
+
+.toggle-text {
+  font-size: 16px;
+  color: #4a5568;
+  font-weight: 500;
 }
 
 /* Canvas styles */
@@ -188,8 +249,13 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Адаптивність для планшетів */

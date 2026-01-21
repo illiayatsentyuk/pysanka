@@ -81,7 +81,8 @@
   "canvasPage": {
     "sendButtonActive": "Відправляємо ...",
     "sendButtonInactive": "Надіслати",
-    "clearCanvasButton": "Очистити"
+    "clearCanvasButton": "Очистити",
+    "showGrid": "Показати сітку"
   },
   "resultModal": {
     "title": "Ваш результат: ",

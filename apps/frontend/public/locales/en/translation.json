@@ -81,7 +81,8 @@
   "canvasPage": {
     "sendButtonActive": "Sending ...",
     "sendButtonInactive": "Send",
-    "clearCanvasButton": "Clear"
+    "clearCanvasButton": "Clear",
+    "showGrid": "Show Grid lines"
   },
   "resultModal": {
     "title": "Your result: ",

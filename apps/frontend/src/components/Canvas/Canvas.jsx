@@ -10,7 +10,7 @@ import "./Canvas.css";
 
 const style = {
   border: "3px solid rgb(184, 184, 184)",
-  
+
 };
 
 const STATUS = {
@@ -49,9 +49,55 @@ const speakLetter = (letter, language) => {
   }
 };
 
+const generateGridSvg = (width, height, letterBase64 = null, showGrid = true) => {
+  const lineOpacity = 0.2;
+  const slantOpacity = 0.1;
+  const slantInterval = 60;
+
+  const lines = [
+    { y: 40, opacity: 0.15 },
+    { y: 80, opacity: 0.4 },
+    { y: 160, opacity: 0.1 },
+    { y: 240, opacity: 0.4 },
+    { y: 280, opacity: 0.15 }
+  ];
+
+  let svgContent = `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">`;
+
+  if (showGrid) {
+    for (let x = -height; x < width + height; x += slantInterval) {
+      const x1 = x;
+      const y1 = 0;
+      const x2 = x - height * Math.tan((115 - 90) * Math.PI / 180);
+      const y2 = height;
+      svgContent += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#cbd5e0" stroke-width="1.5" stroke-opacity="0.6" />`;
+    }
+
+    lines.forEach(line => {
+      svgContent += `<line x1="0" y1="${line.y}" x2="${width}" y2="${line.y}" stroke="black" stroke-width="2" stroke-opacity="${line.opacity}" />`;
+    });
+  }
+
+  if (letterBase64) {
+    const letterDataUrl = `data:image/svg+xml;base64,${letterBase64}`;
+    svgContent += `<image href="${letterDataUrl}" x="0" y="0" width="${width}" height="${height}" />`;
+  }
+
+  svgContent += `</svg>`;
+
+  const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+  return URL.createObjectURL(blob);
+};
+
 export default function Canvas() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
+  const searchParams = new URLSearchParams(location.search);
+  const sketchOrNot = searchParams.get("sketch") === "true";
+  const letter = searchParams.get("letter");
+  const language = searchParams.get("language");
+
   const [letterImage, setLetterImage] = useState(null);
   const [nextLetter, setNextLetter] = useState(null);
   const [prevLetter, setPrevLetter] = useState(null);
@@ -68,14 +114,8 @@ export default function Canvas() {
   const [userLanguage, setUserLanguage] = useState(
     localStorage.getItem('i18nextLng')
   );
-
-  const { t, i18n } = useTranslation();
-
-  const searchParams = new URLSearchParams(location.search);
-  const sketchOrNot = searchParams.get("sketch") === "true";
-  const letter = searchParams.get("letter");
-  const language = searchParams.get("language");
-
+  const [showGrid, setShowGrid] = useState(false);
+  const [base64Letter, setBase64Letter] = useState(null);
   useEffect(() => {
     const handleLanguageChange = () => {
       const currentLang = localStorage.getItem('i18nextLng');
@@ -142,18 +182,7 @@ export default function Canvas() {
     })
       .then((res) => res.json())
       .then((data) => {
-        const base64 = data.image;
-        const mimeType = "image/svg+xml";
-
-        const byteCharacters = atob(base64);
-        const byteNumbers = new Array(byteCharacters.length)
-          .fill(0)
-          .map((_, i) => byteCharacters.charCodeAt(i));
-        const byteArray = new Uint8Array(byteNumbers);
-        const blob = new Blob([byteArray], { type: mimeType });
-
-        const url = URL.createObjectURL(blob);
-        setLetterImage(url);
+        setBase64Letter(data.image);
         setLoading(false);
         setNextLetter(data.nextLetter);
         setPrevLetter(data.prevLetter);
@@ -161,7 +190,23 @@ export default function Canvas() {
       .catch((e) => {
         console.error(e);
       });
-  }, [letter, language, sketchOrNot, navigate]);
+  }, [letter, language, navigate]);
+
+  useEffect(() => {
+    if (!loading) {
+      const isUA = language === 'ua';
+      const shouldRenderGrid = isUA && showGrid;
+
+      const gridWithLetter = generateGridSvg(
+        300,
+        300,
+        sketchOrNot ? base64Letter : null,
+        shouldRenderGrid
+      );
+
+      setLetterImage(gridWithLetter);
+    }
+  }, [showGrid, base64Letter, loading, language, sketchOrNot]);
 
   const handleArrowClick = (direction) => {
     if (direction === "next") {
@@ -317,8 +362,8 @@ export default function Canvas() {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className="canvas-wrapper">
-          {sketchOrNot ? (
+        <div className="canvas-wrapper-container">
+          <div className="canvas-wrapper">
             <ReactSketchCanvas
               style={styles}
               width="300px"
@@ -328,15 +373,20 @@ export default function Canvas() {
               backgroundImage={letterImage}
               ref={canvasRef}
             />
-          ) : (
-            <ReactSketchCanvas
-              style={styles}
-              width="300px"
-              height="300px"
-              strokeWidth={7}
-              strokeColor="blue"
-              ref={canvasRef}
-            />
+          </div>
+          {language === 'ua' && (
+            <div className="canvas-options">
+              <label className="grid-toggle">
+                <input
+                  type="checkbox"
+                  checked={showGrid}
+                  onChange={(e) => setShowGrid(e.target.checked)}
+                />
+                <span className="toggle-text">
+                  {t("canvasPage.showGrid")}
+                </span>
+              </label>
+            </div>
           )}
         </div>
       )}
