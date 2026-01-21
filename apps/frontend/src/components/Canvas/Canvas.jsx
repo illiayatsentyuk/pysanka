@@ -10,9 +10,7 @@ import "./Canvas.css";
 
 const style = {
   border: "3px solid rgb(184, 184, 184)",
-  backgroundColor: "#fff",
-  backgroundImage: "linear-gradient(to right, #ccc 1px, transparent 1px), linear-gradient(to bottom, #ccc 1px, transparent 1px)",
-  backgroundSize: "20px 20px",
+  
 };
 
 const STATUS = {

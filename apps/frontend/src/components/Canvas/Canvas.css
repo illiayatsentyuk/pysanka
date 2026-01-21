@@ -119,6 +119,9 @@
   justify-content: center;
   align-items: center;
   margin: 20px 0;
+  background-color: #fff;
+  background-image: linear-gradient(to right, #ccc 1px, transparent 1px), linear-gradient(to bottom, #ccc 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 /* Canvas styles */
