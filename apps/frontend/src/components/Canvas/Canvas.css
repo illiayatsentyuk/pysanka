@@ -73,7 +73,7 @@
 }
 
 .nav-letter {
-  font-size: 24px;
+  font-size: 48px;
   font-weight: 300;
   color: #87CEEB;
 }
@@ -269,7 +269,7 @@
   }
 
   .nav-letter {
-    font-size: 22px;
+    font-size: 44px;
   }
 
   .canvas-word-to-speach-button {
@@ -294,7 +294,7 @@
   }
 
   .nav-letter {
-    font-size: 20px;
+    font-size: 40px;
   }
 
   .nav-arrow-button {
@@ -341,7 +341,7 @@
   }
 
   .nav-letter {
-    font-size: 18px;
+    font-size: 36px;
   }
 
   .nav-arrow-button {
@@ -384,7 +384,7 @@
   }
 
   .nav-letter {
-    font-size: 16px;
+    font-size: 32px;
   }
 
   .canvas-wrapper .react-sketch-canvas {
