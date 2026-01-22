@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
-import { LuPenTool, LuFileText, LuFileCheck, LuUpload } from "react-icons/lu";
+import { LuPenTool, LuFileText, LuFileCheck, LuUpload, LuTimer } from "react-icons/lu";
 import "./MainPage.css";
 
 export default function Main() {
@@ -81,7 +81,25 @@ export default function Main() {
           </button>
 
         </div>
-
+        <div className="mode-card">
+          <div className="mode-icon">
+            <LuTimer />
+          </div>
+          <h3 className="mode-card-title">
+            <Trans i18nKey="MainPage.quickSection.title">Швидкий</Trans>
+          </h3>
+          <p className="mode-card-description">
+            <Trans i18nKey="MainPage.quickSection.description">
+              Перевір свої знання в швидкому режимі
+            </Trans>
+          </p>
+          <button
+            className="mode-card-button"
+            onClick={() => navigate("/select-language?sketch=quiz")}
+          >
+            <Trans i18nKey="MainPage.startButton">Почати навчання →</Trans>
+          </button>
+        </div>
 
       </div>
     </section>
