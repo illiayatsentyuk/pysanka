@@ -1,0 +1,248 @@
+
+.select-language-wrapper {
+  position: relative;
+}
+
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.dropdown-trigger img {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 0;
+  margin: 0;
+  min-width: 150px;
+  display: none;
+  z-index: 1001;
+}
+
+.dropdown-menu.active {
+  display: block;
+}
+
+.dropdown-menu button {
+  width: 100%;
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  display: block;
+}
+
+.dropdown-menu button:hover {
+  background-color: #f5f5f5;
+}
+
+.active-lang {
+  text-decoration: underline !important;
+  font-weight: bold;
+}
+
+.languages-doc-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.login-button {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #4A90E2;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+}
+
+.login-button:hover {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.syledButton {
+  background-color: #87CEEB;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 50px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+.syledButton:hover {
+  background-color: #6BB6E0;
+}
+
+/* Стилі для навігаційної панелі */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 10px;
+  padding: 12px 30px;
+  background-color: #87CEEB;
+  z-index: 1000;
+  margin: 10px;
+  border-radius: 30px;
+  width: calc(100% - 20px);
+  box-sizing: border-box;
+}
+
+.navbar-logo {
+  font-family: "Tangerine", cursive;
+  font-size: 28px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  margin-right: 25px;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  transition: all 0.3s ease-in-out;
+  gap: 20px;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-links-item {
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+  font-size: 18px;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hidden by default; used to show items only in burger menu */
+.mobile-only {
+  display: none;
+}
+
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.burger-menu span {
+  height: 4px;
+  width: 25px;
+  background-color: white;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+.burger-menu.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8.5px, 8.5px);
+}
+
+.burger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8.5px, -8.5px);
+}
+.auth-buttons {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .burger-menu {
+    display: flex;
+  }
+  .login-button {
+    display: none;
+  }
+
+  .nav-links {
+    display: none;
+    z-index: 1000;
+    position: absolute;
+    right: 0;
+    top: 75px;
+    flex-direction: column;
+    background-color: #87CEEB;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav-links.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 999;
+  }
+
+  .nav-links-item {
+    margin: 15px 20px;
+    font-size: 30px;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav-links-item {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Show items flagged for mobile in burger menu */
+  .mobile-only {
+    display: block;
+  }
+}
+
+.current:after {
+  content: "";
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.current {
+  position: relative;
+  color: #ffffff;
+  padding-bottom: 5px;
+}
+
+.current:hover:after {
+  width: 100%;
+  opacity: 0.8;
+}

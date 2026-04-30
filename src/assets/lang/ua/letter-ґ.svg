@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100mm"
+   height="100mm"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="letter-gege-text-variant-svgrepo-com.svg"
+   inkscape:version="1.4.1-rc (06eac75fbf, 2025-03-29)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.71891835"
+     inkscape:cx="273.32728"
+     inkscape:cy="221.86108"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="285.1506"
+       y="415.90259"
+       width="193.34602"
+       height="172.48134"
+       id="rect1" />
+  </defs>
+  <g
+     inkscape:label="Шар 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="m 499.81651,298.2205 c 5.33332,-1 14.3333,-3.99999 18.33329,-7.99998 2.99999,-2.99999 -0.33334,-5.99998 -3.99999,-3.66666 -7.33332,4.99999 -16.99996,6.66665 -25.66661,6.66665 -14.66662,0 -29.66659,-4.66665 -43.33322,-7.99998 -4.66665,-0.99999 -5.33332,3.99999 -8.33331,10.33331 -6.66665,13.99997 -12.99997,28.33326 -19.66662,42.33323 l -38.9999,84.99978 c -6.66665,14.3333 -12.99996,28.33326 -19.66661,42.66656 -7.66665,15.33329 -16.3333,39.99989 -33.99992,45.66655 -2.66666,0.66666 -5.66665,1.33333 -8.66664,1.33333 -3.99999,0 -7.99998,-1 -11.99997,-3.33333 -3.99999,-2.33333 -4.99999,-2.99999 -7.33332,-4.33332 -3.33332,-2 -6.33331,2.33333 -2.66665,4.99999 6.66664,5.99998 13.33329,8.66664 22.33327,8.66664 6.33332,0 12.3333,-1.66666 17.99996,-5.33332 12.3333,-7.33331 23.33327,-30.66659 29.33325,-44.33322 6.33332,-13.66663 12.66664,-27.33326 18.99996,-40.66656 l 36.9999,-81.66646 c 6.33332,-13.66663 12.66663,-26.99993 18.99995,-40.66656 3.33333,-7.33332 5.66665,-13.99997 8.99998,-12.99997 15.33329,2.66666 37.66657,8.66665 52.3332,5.33332 z"
+       id="text1"
+       style="font-size:133.333px;font-family:Propysy;-inkscape-font-specification:'Propysy, Normal';white-space:pre;fill:#bbbbbb"
+       transform="matrix(0.2938802,0,0,0.30996334,-68.977685,-74.264018)"
+       aria-label="Ґ" />
+  </g>
+</svg>

@@ -1,0 +1,127 @@
+{
+  "NavBar": {
+    "list": {
+      "MainPage": "ホーム",
+      "StudyPage": "学習",
+      "ReviewPage": "テスト",
+      "ComparePage": "フリーモード",
+      "QuickMode": "クイックモード",
+      "signin": "ログイン",
+      "logout": "ログアウト"
+    }
+  },
+  "MainPage": {
+    "title": "Lettera",
+    "slogan": "文字の書き方を教えるアプリ",
+    "chooseMode": "モードを選択",
+    "startButton": "学習を始める →",
+    "studySection": {
+      "title": "学習",
+      "description": "テンプレートをなぞって文字の書き方を学びましょう"
+    },
+    "reviewSection": {
+      "title": "テスト",
+      "description": "ヒントなしで書くスキルをテストしましょう"
+    },
+    "compareSection": {
+      "title": "フリーモード",
+      "description": "テンプレートなしで文字を描き、詳細なフィードバックを受け取りましょう"
+    },
+    "quickSection": {
+      "title": "クイックモード",
+      "description": "ランダムな6文字でクイックテストを受けましょう"
+    },
+    "uploadSection": {
+      "title": "ファイルをアップロード",
+      "description": "文字の写真をアップロードしてサンプルと比較しましょう"
+    }
+  },
+  "SelectLanguagePage": {
+    "title": "言語を選択",
+    "options": {
+      "ua": "ウクライナ語",
+      "en": "英語",
+      "jp": "日本語",
+      "fr": "フランス語",
+      "de": "ドイツ語",
+      "es": "スペイン語",
+      "ro": "ルーマニア語",
+      "zh": "中国語"
+    },
+    "subtitle": "選択された言語: ",
+    "startButton": "開始",
+    "quickModeInfo": "このモードでは、クイックテスト用にランダムな6文字が提供されます"
+  },
+  "comparePage": {
+    "firstElement": {
+      "title": "サンプルファイル"
+    },
+    "secondElement": {
+      "title": "手書きファイル"
+    },
+    "ethalonLetter": {
+      "title": "参照文字"
+    },
+    "userFile": {
+      "title": "あなたのファイル"
+    },
+    "inputText": "アップロード",
+    "startButtonNotLoading": "比較",
+    "startButtonLoading": "比較中 ...",
+    "experimental": "実験的機能！",
+    "instructions": "文字の写真を撮って「アップロード」ボタンを押してください",
+    "prevArrow": "前の文字",
+    "nextArrow": "次の文字",
+    "clearButton": "クリア"
+  },
+  "canvasPage": {
+    "sendButtonActive": "送信中...",
+    "sendButtonInactive": "送信",
+    "clearCanvasButton": "クリア"
+  },
+  "resultModal": {
+    "title": "あなたの結果: ",
+    "description": "ヒント：",
+    "continueButton": "続行"
+  },
+  "quizPage": {
+    "progress": "文字 {{current}} / {{total}}",
+    "submit": "送信",
+    "submitting": "送信中...",
+    "clear": "クリア",
+    "resultsTitle": "あなたの結果",
+    "average": "平均スコア",
+    "loadingResults": "結果を読み込んでいます...",
+    "loadingResult": "読み込み中...",
+    "startAgain": "もう一度始める",
+    "goHome": "ホームへ戻る"
+  },
+  "welcomeModal": {
+    "title": "Letteraへようこそ！",
+    "description": "アプリへの完全なアクセスには、サインインまたは登録してください。",
+    "loginButton": "サインイン",
+    "laterButton": "後で"
+  },
+  "authPage": {
+    "signIn": "サインイン",
+    "signUp": "登録",
+    "email": "メール：",
+    "password": "パスワード：",
+    "confirmPassword": "パスワードを確認：",
+    "name": "名前：",
+    "age": "年齢：",
+    "signInButton": "サインイン",
+    "signUpButton": "登録",
+    "noAccount": "アカウントをお持ちでない方",
+    "haveAccount": "すでにアカウントをお持ちですか？",
+    "register": "登録",
+    "login": "ログイン",
+    "testUser": "テストユーザーとしてログイン"
+  },
+  "404Page": {
+    "error": "エラー",
+    "title": "このページは宇宙の外にあります。",
+    "description": "アクセスしようとしているページが存在しないか、移動されています。ホームページに戻ってください。",
+    "homeButton": "ホームに戻る"
+  }
+}

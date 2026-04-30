@@ -1,0 +1,129 @@
+{
+  "NavBar": {
+    "list": {
+      "MainPage": "Головна",
+      "StudyPage": "Навчання",
+      "ReviewPage": "Тестування",
+      "ComparePage": "Вільний режим",
+      "QuickMode": "Швидкий режим",
+      "signin": "Увійти",
+      "logout": "Вийти"
+    }
+  },
+  "MainPage": {
+    "title": "Lettera",
+    "slogan": "Застосунок, що вчить писати літери",
+    "chooseMode": "Оберіть режим",
+    "startButton": "Почати навчання →",
+    "studySection": {
+      "title": "Навчання",
+      "description": "Навчіться писати літери, обводячи їх за трафаретом"
+    },
+    "reviewSection": {
+      "title": "Тестування",
+      "description": "Перевірте свої навички письма без підказок"
+    },
+    "compareSection": {
+      "title": "Вільний режим",
+      "description": "Малюйте літери без трафарету і отримуйте детальну оцінку"
+    },
+    "quickSection": {
+      "title": "Швидкий режим",
+      "description": "Пройдіть швидкий тест з 6 випадкових літер"
+    },
+    "uploadSection": {
+      "title": "Завантажити файл",
+      "description": "Завантажте фото своєї букви та порівняйте зі зразком"
+    }
+  },
+  "SelectLanguagePage": {
+    "title": "Виберіть мову",
+    "options": {
+      "ua": "Українська",
+      "en": "Англійська",
+      "jp": "Японська",
+      "fr": "Французька",
+      "de": "Німецька",
+      "es": "Іспанська",
+      "ro": "Румунська",
+      "zh": "Китайська"
+    },
+    "subtitle": "Вибрана мова: ",
+    "startButton": "Почати",
+    "quickModeInfo": "В цьому режимі вам буде надано 6 випадкових літер для швидкого тестування"
+  },
+  "comparePage": {
+    "firstElement": {
+      "title": "Файл зі зразком"
+    },
+    "secondElement": {
+      "title": "Файл з письмом"
+    },
+    "ethalonLetter": {
+      "title": "Еталонна буква"
+    },
+    "userFile": {
+      "title": "Ваш файл"
+    },
+    "inputText": "Завантажити",
+    "startButtonNotLoading": "Порівняти",
+    "startButtonLoading": "Порівнюємо ...",
+    "experimental": "Експериментальна функція!",
+    "instructions": "Зробіть фото літери та натисніть кнопку \"завантажити\"",
+    "prevArrow": "Попередня літера",
+    "nextArrow": "Наступна літера",
+    "clearButton": "Очистити"
+  },
+  "canvasPage": {
+    "sendButtonActive": "Відправляємо ...",
+    "sendButtonInactive": "Надіслати",
+    "clearCanvasButton": "Очистити"
+  },
+  "resultModal": {
+    "title": "Ваш результат: ",
+    "description": "Поради:",
+    "continueButton": "Продовжити"
+  },
+  "quizPage": {
+    "resultsTitle": "Ваші результати",
+    "average": "Середній бал",
+    "language": "Мова",
+    "loadingResults": "Завантаження результатів...",
+    "loadingResult": "Завантаження...",
+    "startAgain": "Почати знову",
+    "goHome": "На головну",
+    "downloadPdf": "Завантажити результати (PDF)",
+    "progress": "Літера {{current}} з {{total}}",
+    "submitting": "Відправляємо...",
+    "submit": "Відправити",
+    "clear": "Очистити"
+  },
+  "welcomeModal": {
+    "title": "Ласкаво просимо до Lettera!",
+    "description": "Для повноцінного використання додатку, будь ласка, увійдіть в систему або зареєструйтеся.",
+    "loginButton": "Увійти",
+    "laterButton": "Пізніше"
+  },
+  "authPage": {
+    "signIn": "Вхід",
+    "signUp": "Реєстрація",
+    "email": "Email:",
+    "password": "Пароль:",
+    "confirmPassword": "Підтвердіть пароль:",
+    "name": "Ім'я:",
+    "age": "Вік:",
+    "signInButton": "Увійти",
+    "signUpButton": "Зареєструватися",
+    "noAccount": "Немає облікового запису?",
+    "haveAccount": "Вже є обліковий запис?",
+    "register": "Реєстрація",
+    "login": "Увійти",
+    "testUser": "Увійти як тестовий користувач"
+  },
+  "404Page": {
+    "error": "Помилка",
+    "title": "Ця сторінка поза всесвітом.",
+    "description": "Сторінка, до якої ви намагаєтеся отримати доступ, не існує або була переміщена. Спробуйте повернутися на нашу домашню сторінку.",
+    "homeButton": "Повернутися на головну"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "NavBar": {
+    "list": {
+      "MainPage": "Home",
+      "StudyPage": "Study",
+      "ReviewPage": "Testing",
+      "ComparePage": "Free Mode",
+      "QuickMode": "Quick Mode",
+      "signin": "Sign In",
+      "logout": "Logout"
+    }
+  },
+  "MainPage": {
+    "title": "Lettera",
+    "slogan": "An app that teaches you to write letters",
+    "chooseMode": "Choose a mode",
+    "startButton": "Start Learning →",
+    "studySection": {
+      "title": "Study",
+      "description": "Learn to write letters by tracing templates"
+    },
+    "reviewSection": {
+      "title": "Testing",
+      "description": "Test your writing skills without hints"
+    },
+    "compareSection": {
+      "title": "Free Mode",
+      "description": "Draw letters without templates and get detailed feedback"
+    },
+    "quickSection": {
+      "title": "Quick Mode",
+      "description": "Take a quick test with 6 random letters"
+    },
+    "uploadSection": {
+      "title": "Upload File",
+      "description": "Upload a photo of your letter and compare it to the sample"
+    }
+  },
+  "SelectLanguagePage": {
+    "title": "Choose Language",
+    "options": {
+      "ua": "Ukrainian",
+      "en": "English",
+      "jp": "Japanese",
+      "fr": "French",
+      "de": "German",
+      "es": "Spanish",
+      "ro": "Romanian",
+      "zh": "Chinese"
+    },
+    "subtitle": "Selected language: ",
+    "startButton": "Start",
+    "quickModeInfo": "In this mode, you will be given 6 random letters for quick testing"
+  },
+  "comparePage": {
+    "firstElement": {
+      "title": "Sample File"
+    },
+    "secondElement": {
+      "title": "Handwriting File"
+    },
+    "ethalonLetter": {
+      "title": "Reference Letter"
+    },
+    "userFile": {
+      "title": "Your File"
+    },
+    "inputText": "Upload",
+    "startButtonNotLoading": "Compare",
+    "startButtonLoading": "Comparing ...",
+    "experimental": "Experimental function!",
+    "instructions": "Take a photo of letter and then press button \"upload\"",
+    "prevArrow": "Previous letter",
+    "nextArrow": "Next letter",
+    "clearButton": "Clear"
+  },
+  "canvasPage": {
+    "sendButtonActive": "Sending ...",
+    "sendButtonInactive": "Send",
+    "clearCanvasButton": "Clear"
+  },
+  "resultModal": {
+    "title": "Your result: ",
+    "description": "Tips:",
+    "continueButton": "Continue"
+  },
+  "quizPage": {
+    "resultsTitle": "Your Results",
+    "average": "Average Score",
+    "language": "Language",
+    "loadingResults": "Loading results...",
+    "loadingResult": "Loading...",
+    "startAgain": "Start Again",
+    "goHome": "Go Home",
+    "downloadPdf": "Download results (PDF)",
+    "progress": "Letter {{current}} of {{total}}",
+    "submitting": "Submitting...",
+    "submit": "Submit",
+    "clear": "Clear"
+  },
+  "welcomeModal": {
+    "title": "Welcome to Lettera!",
+    "description": "For full access to the app, please sign in or register.",
+    "loginButton": "Sign In",
+    "laterButton": "Later"
+  },
+  "authPage": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "email": "Email:",
+    "password": "Password:",
+    "confirmPassword": "Confirm Password:",
+    "name": "Name:",
+    "age": "Age:",
+    "signInButton": "Sign In",
+    "signUpButton": "Sign Up",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "register": "Register",
+    "login": "Login",
+    "testUser": "Login as test user"
+  },
+  "404Page": {
+    "error": "Error",
+    "title": "This page is outside of the universe.",
+    "description": "The page you are trying to access doesn't exist or has been moved. Try going back to our homepage.",
+    "homeButton": "Go to home"
+  }
+}

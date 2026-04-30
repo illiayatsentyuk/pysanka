@@ -1,0 +1,127 @@
+{
+  "NavBar": {
+    "list": {
+      "MainPage": "Startseite",
+      "StudyPage": "Lernen",
+      "ReviewPage": "Testen",
+      "ComparePage": "Freier Modus",
+      "QuickMode": "Schnellmodus",
+      "signin": "Anmelden",
+      "logout": "Abmelden"
+    }
+  },
+  "MainPage": {
+    "title": "Lettera",
+    "slogan": "Eine App, die Ihnen das Schreiben von Buchstaben beibringt",
+    "chooseMode": "Wählen Sie einen Modus",
+    "startButton": "Lernen beginnen →",
+    "studySection": {
+      "title": "Lernen",
+      "description": "Lernen Sie, Buchstaben zu schreiben, indem Sie Vorlagen nachzeichnen"
+    },
+    "reviewSection": {
+      "title": "Testen",
+      "description": "Testen Sie Ihre Schreibfähigkeiten ohne Hinweise"
+    },
+    "compareSection": {
+      "title": "Freier Modus",
+      "description": "Zeichnen Sie Buchstaben ohne Vorlagen und erhalten Sie detailliertes Feedback"
+    },
+    "quickSection": {
+      "title": "Schnellmodus",
+      "description": "Machen Sie einen schnellen Test mit 6 zufälligen Buchstaben"
+    },
+    "uploadSection": {
+      "title": "Datei hochladen",
+      "description": "Laden Sie ein Foto Ihres Buchstabens hoch und vergleichen Sie es mit der Vorlage"
+    }
+  },
+  "SelectLanguagePage": {
+    "title": "Sprache wählen",
+    "options": {
+      "ua": "Ukrainisch",
+      "en": "Englisch",
+      "jp": "Japanisch",
+      "fr": "Französisch",
+      "de": "Deutsch",
+      "es": "Spanisch",
+      "ro": "Rumänisch",
+      "zh": "Chinesisch"
+    },
+    "subtitle": "Ausgewählte Sprache: ",
+    "startButton": "Starten",
+    "quickModeInfo": "In diesem Modus erhalten Sie 6 zufällige Buchstaben für einen schnellen Test"
+  },
+  "comparePage": {
+    "firstElement": {
+      "title": "Beispieldatei"
+    },
+    "secondElement": {
+      "title": "Handschriftdatei"
+    },
+    "ethalonLetter": {
+      "title": "Referenzbuchstabe"
+    },
+    "userFile": {
+      "title": "Ihre Datei"
+    },
+    "inputText": "Hochladen",
+    "startButtonNotLoading": "Vergleichen",
+    "startButtonLoading": "Vergleiche ...",
+    "experimental": "Experimentelle Funktion!",
+    "instructions": "Machen Sie ein Foto des Buchstabens und drücken Sie dann die Schaltfläche \"Hochladen\"",
+    "prevArrow": "Vorheriger Buchstabe",
+    "nextArrow": "Nächster Buchstabe",
+    "clearButton": "Löschen"
+  },
+  "canvasPage": {
+    "sendButtonActive": "Senden...",
+    "sendButtonInactive": "Senden",
+    "clearCanvasButton": "Löschen"
+  },
+  "resultModal": {
+    "title": "Ihr Ergebnis: ",
+    "description": "Tipps:",
+    "continueButton": "Weiter"
+  },
+  "quizPage": {
+    "progress": "Buchstabe {{current}} von {{total}}",
+    "submit": "Absenden",
+    "submitting": "Wird gesendet...",
+    "clear": "Löschen",
+    "resultsTitle": "Ihre Ergebnisse",
+    "average": "Durchschnitt",
+    "loadingResults": "Ergebnisse werden geladen...",
+    "loadingResult": "Wird geladen...",
+    "startAgain": "Neu starten",
+    "goHome": "Zur Startseite"
+  },
+  "welcomeModal": {
+    "title": "Willkommen bei Lettera!",
+    "description": "Für den vollen Zugriff auf die App, melden Sie sich bitte an oder registrieren Sie sich.",
+    "loginButton": "Anmelden",
+    "laterButton": "Später"
+  },
+  "authPage": {
+    "signIn": "Anmelden",
+    "signUp": "Registrieren",
+    "email": "Email:",
+    "password": "Passwort:",
+    "confirmPassword": "Passwort bestätigen:",
+    "name": "Name:",
+    "age": "Alter:",
+    "signInButton": "Anmelden",
+    "signUpButton": "Registrieren",
+    "noAccount": "Noch kein Konto?",
+    "haveAccount": "Bereits ein Konto?",
+    "register": "Registrieren",
+    "login": "Anmelden",
+    "testUser": "Als Testbenutzer anmelden"
+  },
+  "404Page": {
+    "error": "Fehler",
+    "title": "Diese Seite ist außerhalb des Universums.",
+    "description": "Die Seite, auf die Sie zugreifen möchten, existiert nicht oder wurde verschoben. Versuchen Sie, zurück zu unserer Startseite zu gelangen.",
+    "homeButton": "Zur Startseite zurückkehren"
+  }
+}

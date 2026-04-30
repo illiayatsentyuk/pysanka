@@ -1,0 +1,127 @@
+{
+  "NavBar": {
+    "list": {
+      "MainPage": "Inicio",
+      "StudyPage": "Estudio",
+      "ReviewPage": "Prueba",
+      "ComparePage": "Modo libre",
+      "QuickMode": "Modo rápido",
+      "signin": "Iniciar sesión",
+      "logout": "Cerrar sesión"
+    }
+  },
+  "MainPage": {
+    "title": "Lettera",
+    "slogan": "Una aplicación que te enseña a escribir letras",
+    "chooseMode": "Elige un modo",
+    "startButton": "Comenzar aprendizaje →",
+    "studySection": {
+      "title": "Estudio",
+      "description": "Aprende a escribir letras siguiendo plantillas"
+    },
+    "reviewSection": {
+      "title": "Prueba",
+      "description": "Pon a prueba tus habilidades de escritura sin pistas"
+    },
+    "compareSection": {
+      "title": "Modo libre",
+      "description": "Dibuja letras sin plantillas y obtén comentarios detallados"
+    },
+    "quickSection": {
+      "title": "Modo rápido",
+      "description": "Realiza una prueba rápida con 6 letras aleatorias"
+    },
+    "uploadSection": {
+      "title": "Subir archivo",
+      "description": "Sube una foto de tu letra y compárala con la muestra"
+    }
+  },
+  "SelectLanguagePage": {
+    "title": "Elige un idioma",
+    "options": {
+      "ua": "Ucraniano",
+      "en": "Inglés",
+      "jp": "Japonés",
+      "fr": "Francés",
+      "de": "Alemán",
+      "es": "Español",
+      "ro": "Rumano",
+      "zh": "Chino"
+    },
+    "subtitle": "Idioma seleccionado: ",
+    "startButton": "Comenzar",
+    "quickModeInfo": "En este modo, recibirás 6 letras aleatorias para una prueba rápida"
+  },
+  "comparePage": {
+    "firstElement": {
+      "title": "Archivo de muestra"
+    },
+    "secondElement": {
+      "title": "Archivo de escritura"
+    },
+    "ethalonLetter": {
+      "title": "Letra de referencia"
+    },
+    "userFile": {
+      "title": "Tu archivo"
+    },
+    "inputText": "Subir",
+    "startButtonNotLoading": "Comparar",
+    "startButtonLoading": "Comparando ...",
+    "experimental": "¡Función experimental!",
+    "instructions": "Tome una foto de la letra y luego presione el botón \"subir\"",
+    "prevArrow": "Letra anterior",
+    "nextArrow": "Letra siguiente",
+    "clearButton": "Limpiar"
+  },
+  "canvasPage": {
+    "sendButtonActive": "Enviando ...",
+    "sendButtonInactive": "Enviar",
+    "clearCanvasButton": "Borrar"
+  },
+  "resultModal": {
+    "title": "Tu resultado: ",
+    "description": "Consejos:",
+    "continueButton": "Continuar"
+  },
+  "quizPage": {
+    "progress": "Letra {{current}} de {{total}}",
+    "submit": "Enviar",
+    "submitting": "Enviando...",
+    "clear": "Borrar",
+    "resultsTitle": "Tus resultados",
+    "average": "Puntuación media",
+    "loadingResults": "Cargando resultados...",
+    "loadingResult": "Cargando...",
+    "startAgain": "Empezar de nuevo",
+    "goHome": "Ir al inicio"
+  },
+  "welcomeModal": {
+    "title": "¡Bienvenido a Lettera!",
+    "description": "Para acceso completo a la aplicación, por favor inicia sesión o regístrate.",
+    "loginButton": "Iniciar sesión",
+    "laterButton": "Más tarde"
+  },
+  "authPage": {
+    "signIn": "Iniciar sesión",
+    "signUp": "Registrarse",
+    "email": "Email:",
+    "password": "Contraseña:",
+    "confirmPassword": "Confirmar contraseña:",
+    "name": "Nombre:",
+    "age": "Edad:",
+    "signInButton": "Iniciar sesión",
+    "signUpButton": "Registrarse",
+    "noAccount": "¿No tienes cuenta?",
+    "haveAccount": "¿Ya tienes cuenta?",
+    "register": "Registrarse",
+    "login": "Iniciar sesión",
+    "testUser": "Iniciar sesión como usuario de prueba"
+  },
+  "404Page": {
+    "error": "Error",
+    "title": "Esta página está fuera del universo.",
+    "description": "La página que estás intentando acceder no existe o ha sido movida. Intenta volver a nuestra página de inicio.",
+    "homeButton": "Volver a la página principal"
+  }
+}

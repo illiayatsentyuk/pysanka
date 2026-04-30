@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100mm"
+   height="100mm"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="letter-c-text-variant-svgrepo-com.svg"
+   inkscape:version="1.4.1-rc (06eac75fbf, 2025-03-29)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.71891835"
+     inkscape:cx="273.32728"
+     inkscape:cy="221.86108"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="285.1506"
+       y="415.90259"
+       width="193.34602"
+       height="172.48134"
+       id="rect1" />
+  </defs>
+  <g
+     inkscape:label="Шар 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="m 338.48359,512.55329 c -58.33319,0 -33.99992,-84.33312 -19.99995,-116.9997 16.33329,-36.33325 56.33319,-97.33309 100.33308,-103.66641 20.66661,-2.99999 28.99992,8.33332 28.66659,25.6666 0,3 1.66666,4.66666 3.33332,4.66666 1,0 2.33333,-1 2.66666,-2.99999 2.33333,-13.99997 -5.99998,-31.33326 -21.66661,-33.33325 -4.99998,-0.66667 -10.3333,-0.66667 -15.33329,0 -15.99996,1.99999 -34.66658,14.3333 -45.99988,25.33327 -24.66661,22.33327 -44.33322,51.66653 -57.66652,81.99979 -20.99995,47.66654 -39.9999,134.66632 39.99989,123.99968 27.33327,-3.99999 52.99987,-16.66662 73.33315,-35.33324 l 3.99999,-3.66666 c 2.33333,-3.33332 -1.33333,-5.99998 -4.66665,-2.99999 -24.99994,21.99994 -53.99987,37.33324 -86.99978,37.33324 z"
+       id="text1"
+       style="font-size:133.333px;font-family:Propysy;-inkscape-font-specification:'Propysy, Normal';white-space:pre;fill:#bbbbbb"
+       transform="matrix(0.46281217,0,0,0.39873796,-121.36268,-111.28339)"
+       aria-label="С" />
+  </g>
+</svg>

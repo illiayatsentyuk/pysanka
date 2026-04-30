@@ -1,0 +1,127 @@
+{
+  "NavBar": {
+    "list": {
+      "MainPage": "主页",
+      "StudyPage": "学习",
+      "ReviewPage": "测试",
+      "ComparePage": "自由模式",
+      "QuickMode": "快速模式",
+      "signin": "登录",
+      "logout": "退出"
+    }
+  },
+  "MainPage": {
+    "title": "Lettera",
+    "slogan": "教你写字母的应用程序",
+    "chooseMode": "选择模式",
+    "startButton": "开始学习 →",
+    "studySection": {
+      "title": "学习",
+      "description": "通过描摹模板学习书写字母"
+    },
+    "reviewSection": {
+      "title": "测试",
+      "description": "在没有提示的情况下测试您的书写技能"
+    },
+    "compareSection": {
+      "title": "自由模式",
+      "description": "在没有模板的情况下绘制字母并获得详细反馈"
+    },
+    "quickSection": {
+      "title": "快速模式",
+      "description": "用6个随机字母进行快速测试"
+    },
+    "uploadSection": {
+      "title": "上传文件",
+      "description": "上传您的字母照片并与样本进行比较"
+    }
+  },
+  "SelectLanguagePage": {
+    "title": "选择语言",
+    "options": {
+      "ua": "乌克兰语",
+      "en": "英语",
+      "jp": "日语",
+      "fr": "法语",
+      "de": "德语",
+      "es": "西班牙语",
+      "ro": "罗马尼亚语",
+      "zh": "中文"
+    },
+    "subtitle": "已选择语言: ",
+    "startButton": "开始",
+    "quickModeInfo": "在此模式下，您将获得6个随机字母进行快速测试"
+  },
+  "comparePage": {
+    "firstElement": {
+      "title": "样本文件"
+    },
+    "secondElement": {
+      "title": "手写文件"
+    },
+    "ethalonLetter": {
+      "title": "参考字母"
+    },
+    "userFile": {
+      "title": "您的文件"
+    },
+    "inputText": "上传",
+    "startButtonNotLoading": "比较",
+    "startButtonLoading": "比较中 ...",
+    "experimental": "实验功能！",
+    "instructions": "拍摄字母照片，然后点击按钮",
+    "prevArrow": "上一个字母",
+    "nextArrow": "下一个字母",
+    "clearButton": "清除"
+  },
+  "canvasPage": {
+    "sendButtonActive": "发送中...",
+    "sendButtonInactive": "发送",
+    "clearCanvasButton": "清除"
+  },
+  "resultModal": {
+    "title": "您的结果: ",
+    "description": "提示：",
+    "continueButton": "继续"
+  },
+  "quizPage": {
+    "progress": "字母 {{current}} / {{total}}",
+    "submit": "提交",
+    "submitting": "提交中...",
+    "clear": "清除",
+    "resultsTitle": "您的结果",
+    "average": "平均分数",
+    "loadingResults": "加载结果中...",
+    "loadingResult": "加载中...",
+    "startAgain": "重新开始",
+    "goHome": "回到主页"
+  },
+  "welcomeModal": {
+    "title": "欢迎来到 Lettera！",
+    "description": "要完全访问应用程序，请登录或注册。",
+    "loginButton": "登录",
+    "laterButton": "稍后"
+  },
+  "authPage": {
+    "signIn": "登录",
+    "signUp": "注册",
+    "email": "电子邮件：",
+    "password": "密码：",
+    "confirmPassword": "确认密码：",
+    "name": "姓名：",
+    "age": "年龄：",
+    "signInButton": "登录",
+    "signUpButton": "注册",
+    "noAccount": "还没有账户？",
+    "haveAccount": "已有账户？",
+    "register": "注册",
+    "login": "登录",
+    "testUser": "以测试用户身份登录"
+  },
+  "404Page": {
+    "error": "错误",
+    "title": "此页面在宇宙之外。",
+    "description": "您尝试访问的页面不存在或已移动。请返回我们的主页。",
+    "homeButton": "返回主页"
+  }
+}

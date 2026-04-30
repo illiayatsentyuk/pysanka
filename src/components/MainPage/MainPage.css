@@ -1,0 +1,122 @@
+.main-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 3rem 2rem;
+  min-height: calc(100vh - 80px);
+  background-color: white;
+  gap: 2rem;
+}
+
+.main-page-title {
+  font-family: "Tangerine", cursive;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #4A90E2;
+  margin: 0;
+  text-align: center;
+}
+
+.main-page-slogan {
+  font-size: 1.2rem;
+  color: #4A90E2;
+  margin: -1rem 0 1rem 0;
+  text-align: center;
+}
+
+.main-page-choose-mode {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #2d3748;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.mode-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+  align-items: center;
+}
+
+.mode-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid #87CEEB;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.mode-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #87CEEB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mode-card-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #4A90E2;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.mode-card-description {
+  color: #2d3748;
+  line-height: 1.6;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.mode-card-button {
+  background-color: #87CEEB;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: auto;
+}
+
+.mode-card-button:hover {
+  background-color: #6BB6E0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(135, 206, 235, 0.3);
+}
+
+@media (max-width: 768px) {
+  .main-page {
+    padding: 2rem 1rem;
+  }
+
+  .main-page-title {
+    font-size: 2.5rem;
+  }
+
+  .main-page-slogan {
+    font-size: 1rem;
+  }
+
+  .mode-card {
+    padding: 1.5rem;
+  }
+
+  .mode-icon {
+    font-size: 2.5rem;
+  }
+}

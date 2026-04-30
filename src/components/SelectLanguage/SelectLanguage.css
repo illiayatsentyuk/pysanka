@@ -1,0 +1,149 @@
+.select-language {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+.select-language h1 {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.select-language select {
+  width: 220px;
+  padding: 7px 13px;
+  border: 1.5px solid #38b6ff;
+  border-radius: 0px;
+  font-size: 1rem;
+  background: #fff;
+  color: #262626;
+  font-weight: 500;
+  box-shadow: none;
+  transition: border 0.2s;
+}
+.select-language select:focus {
+  outline: 1.5px solid #38b6ff;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.select-language p {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0;
+}
+
+.select-language ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.select-language-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.select-language-button {
+  background-color: white;
+  color: #38b6ff;
+  border: 2px solid #38b6ff;
+  border-radius: 25px;
+  padding: 10px 10px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.select-language button:hover {
+  background-color: #31a0e0;
+  color: #fff;
+}
+.select-language-button.active {
+  background-color: #38b6ff;
+  color: #fff;
+}
+.select-language-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.select-language-list li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.select-language-list button {
+  width: 50px;
+  height: 50px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.select-language-button.done {
+  background-color: #4caf50; /* зелений */
+  color: white;
+}
+
+.select-language-button.half-done {
+  background-color: #ffeb3b; /* жовтий */
+  color: black;
+}
+
+.select-language-button.poor {
+  background-color: #f44336; /* червоний */
+  color: white;
+}
+
+.quick-mode-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.quick-mode-info p {
+  font-size: 1.2rem;
+  color: #2d3748;
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+@media (max-width: 768px) {
+  .select-language h1 {
+    font-size: 30px;
+  }
+
+  .select-language select {
+    width: 200px;
+    font-size: 20px;
+  }
+
+  .select-language ul li button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}

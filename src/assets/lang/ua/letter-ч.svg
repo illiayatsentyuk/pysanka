@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100mm"
+   height="100mm"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="letter-ch-text-variant-svgrepo-com.svg"
+   inkscape:version="1.4.1-rc (06eac75fbf, 2025-03-29)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.71891835"
+     inkscape:cx="273.32728"
+     inkscape:cy="221.86108"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="285.1506"
+       y="415.90259"
+       width="193.34602"
+       height="172.48134"
+       id="rect1" />
+  </defs>
+  <g
+     inkscape:label="Шар 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="m 333.4836,288.22053 c -11.99997,4.33332 -34.33325,25.99993 -37.33324,37.33323 -0.66666,2.66666 2.33333,5.66666 3.99999,2.33333 2,-3.33332 3.66666,-6.33332 5.99999,-9.33331 9.66664,-12.3333 26.33326,-29.66659 42.66655,-26.99993 5.66666,1 6.99999,6.99998 7.33332,11.33331 0.66666,9.3333 -2,15.99995 -4.99999,24.6666 -8.99998,25.6666 -62.6665,105.6664 -3.33332,94.99976 15.66662,-2.66666 32.33325,-18.99996 53.33319,-47.33322 0.33334,-0.33333 4.66666,-5.99998 4.99999,-5.99998 0.66667,0 -2.33333,6.33332 -2.66666,7.33331 l -42.33322,91.3331 c -4.66666,10.99998 -16.3333,37.66657 -4.99999,46.99988 2.99999,2.66666 8.33331,3.66666 13.66663,3.66666 5.66665,0 11.66664,-1.33333 15.3333,-2.99999 15.33329,-7.66665 33.33324,-25.33327 45.33321,-37.33324 2.66666,-2.66666 -1.99999,-5.99998 -4.33332,-3.33332 -12.99997,13.66663 -36.99991,38.33323 -57.66652,38.33323 -4.99999,0 -9.33331,-1.66666 -10.99997,-6.33332 -5.66665,-16.33329 28.33326,-77.33313 35.99991,-93.99976 18.66662,-40.66656 36.33324,-81.66645 55.33319,-121.99968 1.33333,-2.66666 0,-4.33333 -1.66666,-4.33333 -1,0 -2.66666,0.66667 -3.66666,3 -16.66662,33.66658 -62.99984,128.333 -105.6664,128.333 -10.3333,0 -16.33329,-6.66665 -8.99997,-26.6666 10.3333,-27.99993 44.33322,-81.99979 29.99992,-99.99974 -2.66666,-3.33333 -6.33332,-5.33332 -10.66664,-5.66665 -4.99999,-0.33334 -9.99997,0.99999 -14.66663,2.66666 z"
+       id="text1"
+       style="font-size:133.333px;font-family:Propysy;-inkscape-font-specification:'Propysy, Normal';white-space:pre;fill:#bbbbbb"
+       transform="matrix(0.42945701,0,0,0.34614873,-108.90728,-90.083833)"
+       aria-label="Ч" />
+  </g>
+</svg>
