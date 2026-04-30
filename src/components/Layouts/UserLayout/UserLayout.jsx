@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import { useTranslation, Trans } from "react-i18next";
 import languagesImage from "../../../assets/languages.svg";
 import question from "../../../assets/question-svgrepo-com.svg";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "../Layouts.css";
 
 export default function UserLayout() {
@@ -12,18 +12,10 @@ export default function UserLayout() {
   const dropdownMenuRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const navigate = useNavigate();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const mode = location.pathname.split("/")[1];
   const sketch = searchParams.get("sketch");
-  const token = localStorage.getItem("token");
-
-  function handleLogout() {
-    localStorage.removeItem("token");
-    navigate("/");
-    window.location.reload(false);
-  }
 
   useEffect(() => {
     const handleClickOutside = (event) => {

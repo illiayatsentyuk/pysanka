@@ -1,11 +1,9 @@
 import { useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { Trans } from "react-i18next";
 import "./ModalWelcome.css";
 
 export default function ModalWelcome({ onClose }) {
   const modalRef = useRef(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     modalRef.current?.showModal();
@@ -28,10 +26,7 @@ export default function ModalWelcome({ onClose }) {
         <div className="welcome-buttons">
           <button
             className="welcome-button login-btn"
-            onClick={() => {
-              navigate("/auth");
-              onClose();
-            }}
+            onClick={onClose}
           >
             <Trans i18nKey="welcomeModal.loginButton">Увійти</Trans>
           </button>
